@@ -52,6 +52,9 @@ Standard library only, except `figures.py`.
 Does a model claim techniques it cannot evidence from the telemetry it has been
 told is available?
 
+**See [RUNBOOK.md](RUNBOOK.md) for the full sequence — it has a stop gate at the
+smoke test that matters.** Short version:
+
 ```bash
 python src/experiment.py --backend openai --host http://localhost:8000 --list-models
 python src/experiment.py --backend openai --host http://localhost:8000 \
