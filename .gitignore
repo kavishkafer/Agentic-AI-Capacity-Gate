@@ -20,3 +20,7 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+
+# working notes / write-up — not part of the code artifact
+ANALYSIS.md
+data/MANIFEST.md
