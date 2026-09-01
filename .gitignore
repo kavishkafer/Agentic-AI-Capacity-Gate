@@ -1,0 +1,22 @@
+# ATT&CK bundles (~107 MB) — fetched by fetch_data.py, versioned upstream
+data/*.json
+
+# generated results
+out/
+!out/.gitkeep
+
+# transfer artefacts
+*.tar.gz
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
