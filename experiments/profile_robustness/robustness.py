@@ -244,10 +244,15 @@ def figure(techs, ics) -> None:
             label="as authored")
     ax.plot(list(xs), without, color=ORANGE, lw=2, marker="o", ms=5,
             linestyle=(0, (4, 3)), label="catch-all excluded")
-    ax.annotate(f"one component\ncarries {with_ca[-1] - without[-1]:.0%}",
-                xy=(4, (with_ca[-1] + without[-1]) / 2), xytext=(2.15, 0.70),
-                fontsize=8, color=INK2,
-                arrowprops=dict(arrowstyle="-", color=GRID, lw=1))
+    # Vertical span at the last tier rather than a leader from the left: the gap
+    # sits at the right edge and any leader would cross the rising blue line.
+    last = len(TIERS) - 1
+    ax.annotate("", xy=(last, with_ca[-1]), xytext=(last, without[-1]),
+                arrowprops=dict(arrowstyle="<->", color=INK2, lw=1.1))
+    ax.text(last - 0.12, (with_ca[-1] + without[-1]) / 2,
+            f"one component\ncarries {with_ca[-1] - without[-1]:.0%}",
+            ha="right", va="center", fontsize=8, color=INK2)
+    ax.set_xlim(-0.3, last + 0.3)
     ax.set_xticks(list(xs), [SHORT[k].replace("\n", " ") for k in TIERS],
                   fontsize=7.5)
     ax.set_ylim(0, 1.04)
