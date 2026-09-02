@@ -3,6 +3,29 @@
 **Registered 2026-09-02, before any sweep run.** Recorded here so the result
 cannot be read as post-hoc rationalisation, whichever way it falls.
 
+## Amendment 1 — 2026-09-02, still before any sweep run
+
+The ontology-side sensitivity analysis in
+[`experiments/profile_robustness/`](../profile_robustness/) found that
+`p5_controller`'s 100% ceiling rests entirely on a single generic data
+component, `Application Log Content`. It appears in 41 ICS analytics but is the
+sole requirement of only 2; in the other 39 it completes an analytic whose other
+requirements are already met, so it lands all at once. Remove it and p5 falls
+from **100% to 51.8%**.
+
+H1 as originally written reasoned from "at p5 every checkable technique is
+evidenceable". That premise is an artefact of one component — and one *we*
+placed in the controller tier, not one MITRE put there.
+
+**Amendment:** add a variant tier `p5b_controller_strict` = `p5_controller`
+minus that component, and register H1's "approaches zero" claim **against p5b,
+not p5**. Both are run and both are reported. p5b is a variant, not a sixth
+cumulative tier, so monotonicity is tested over p1..p5 only.
+
+Cost: +271 calls per model, +813 total.
+
+Nothing else changes, and no sweep data existed when this was written.
+
 ## The objection this answers
 
 At `p3_historian` only **10 of 97** ICS techniques are evidenceable at all. A
@@ -28,16 +51,22 @@ evidenceable at each tier — is already known from the measurement study:
 | `p3_historian` | 11.8% |
 | `p4_host` | 50.6% |
 | `p5_controller` | 100% |
+| `p5b_controller_strict` *(variant, Amendment 1)* | 51.8% |
 
 ## Primary prediction
 
-**H1 — `capacity_violation` falls monotonically as instrumentation improves, and
-approaches zero at `p5_controller`.**
+**H1 — `capacity_violation` falls monotonically across `p1..p5` as
+instrumentation improves, and approaches zero at `p5b_controller_strict`.**
 
 At `p5` every checkable technique is evidenceable, so a claim can only violate
 capacity if the model names an `UNDEFINED` technique or an unresolvable ID.
 Violation should therefore collapse to roughly the UNDEFINED + unknown-ID rate,
 not to the 40–72% seen at `p3`.
+
+**Per Amendment 1 the floor is judged at p5b, not p5.** p5's 100% is carried by
+one catch-all component, so a collapse to zero there would be cheap. p5b is the
+honest test: 51.8% of checkable techniques evidenceable, and violation should
+still fall substantially below the `p3` rate without reaching zero.
 
 - **If H1 holds**: the gate tracks instrumentation rather than rejecting
   reflexively. The `p3` numbers measure a real property of a real deployment.
@@ -81,6 +110,7 @@ diverge when evidence is scarce.
 ## Run parameters, fixed in advance
 
 - items: all 271 ATT&CK ICS procedure examples
+- profiles: p1..p5 cumulative, plus the p5b variant (Amendment 1) = 6 runs per model
 - models: deepseek-v4-flash, gemma-4-26b-moe, qwen3.8-27b (non-thinking, matching the first run)
 - temperature 0, `max_tokens` 1024, identical context settings to the first run
 - condition: **`instrumented` only** — see RUNBOOK.md §"Why bare is not re-run"

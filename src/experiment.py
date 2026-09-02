@@ -188,7 +188,7 @@ def main() -> None:
     if args.limit:
         items = items[:args.limit]
     coverage = profiles.named(args.profile)
-    label = next(l for k, l, _ in profiles.cumulative() if k == args.profile)
+    label = profiles.label(args.profile)
 
     print(f"backend={client.backend}  model={client.model or '(default)'}")
     print(f"profile={args.profile} ({len(coverage)} data components)")

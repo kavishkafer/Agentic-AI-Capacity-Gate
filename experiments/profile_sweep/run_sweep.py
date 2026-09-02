@@ -1,10 +1,10 @@
-"""Profile sweep driver — the same items and models across all five profiles.
+"""Profile sweep driver — the same items and models across all six profiles.
 
     python experiments/profile_sweep/run_sweep.py \
         --backend openai --host http://localhost:8000 \
         --model "<exact-id>" --name deepseek
 
-Runs the `instrumented` condition at p1..p5 for one model, writing
+Runs the `instrumented` condition at p1..p5 plus the p5b variant for one model, writing
 out/experiment_sweep_<name>_<profile>.csv per tier. Resumable: an existing
 output file for a profile is skipped, so an interrupted sweep can be restarted
 without redoing completed tiers.
@@ -22,7 +22,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 OUT = ROOT / "out"
-PROFILES = ["p1_flow", "p2_dpi", "p3_historian", "p4_host", "p5_controller"]
+PROFILES = ["p1_flow", "p2_dpi", "p3_historian", "p4_host", "p5_controller",
+            "p5b_controller_strict"]
 
 
 def main() -> None:

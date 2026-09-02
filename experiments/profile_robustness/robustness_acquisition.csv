@@ -1,0 +1,16 @@
+part,rank,data_component,cumulative_pass,marginal_gain
+acquisition,1,Application Log Content,2,2
+acquisition,2,Network Traffic Content,7,5
+acquisition,3,Network Traffic Flow,16,9
+acquisition,4,Device Alarm,20,4
+acquisition,5,Asset Inventory,26,6
+acquisition,6,Firmware Modification,30,4
+acquisition,7,Logon Session Creation,34,4
+acquisition,8,Software,38,4
+acquisition,9,Process History/Live Data,41,3
+acquisition,10,File Modification,43,2
+acquisition,11,Logon Session Metadata,45,2
+acquisition,12,OS API Execution,47,2
+acquisition,13,Process/Event Alarm,49,2
+acquisition,14,Process Termination,56,7
+acquisition,15,Command Execution,57,1

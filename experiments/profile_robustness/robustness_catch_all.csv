@@ -1,0 +1,6 @@
+part,profile,n_pass_with,n_pass_without,delta
+catch_all,p1_flow,1,1,0
+catch_all,p2_dpi,8,8,0
+catch_all,p3_historian,10,10,0
+catch_all,p4_host,43,43,0
+catch_all,p5_controller,85,44,-41

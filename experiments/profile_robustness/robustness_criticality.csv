@@ -1,0 +1,118 @@
+part,profile,data_component,base_pass,loss_if_removed
+criticality,p1_flow,Network Traffic Flow,1,1
+criticality,p1_flow,Network Connection Creation,1,0
+criticality,p2_dpi,Network Traffic Flow,8,7
+criticality,p2_dpi,Network Traffic Content,8,7
+criticality,p2_dpi,Network Connection Creation,8,0
+criticality,p3_historian,Network Traffic Flow,10,8
+criticality,p3_historian,Network Traffic Content,10,8
+criticality,p3_historian,Device Alarm,10,2
+criticality,p3_historian,Process/Event Alarm,10,1
+criticality,p3_historian,Process History/Live Data,10,1
+criticality,p3_historian,Network Connection Creation,10,0
+criticality,p3_historian,Asset Inventory,10,0
+criticality,p4_host,Network Traffic Content,43,18
+criticality,p4_host,Process Creation,43,16
+criticality,p4_host,Network Traffic Flow,43,15
+criticality,p4_host,Command Execution,43,14
+criticality,p4_host,OS API Execution,43,8
+criticality,p4_host,Logon Session Creation,43,6
+criticality,p4_host,File Modification,43,6
+criticality,p4_host,Script Execution,43,5
+criticality,p4_host,File Access,43,5
+criticality,p4_host,File Metadata,43,4
+criticality,p4_host,Windows Registry Key Modification,43,3
+criticality,p4_host,Process Metadata,43,3
+criticality,p4_host,Module Load,43,3
+criticality,p4_host,Device Alarm,43,3
+criticality,p4_host,Software,43,2
+criticality,p4_host,Network Share Access,43,2
+criticality,p4_host,Network Connection Creation,43,2
+criticality,p4_host,Logon Session Metadata,43,2
+criticality,p4_host,File Deletion,43,2
+criticality,p4_host,File Creation,43,2
+criticality,p4_host,Drive Creation,43,2
+criticality,p4_host,Windows Registry Key Deletion,43,1
+criticality,p4_host,User Account Authentication,43,1
+criticality,p4_host,Service Modification,43,1
+criticality,p4_host,Service Metadata,43,1
+criticality,p4_host,Service Creation,43,1
+criticality,p4_host,Scheduled Job Modification,43,1
+criticality,p4_host,Scheduled Job Creation,43,1
+criticality,p4_host,Process/Event Alarm,43,1
+criticality,p4_host,Process Termination,43,1
+criticality,p4_host,Process History/Live Data,43,1
+criticality,p4_host,Scheduled Job Metadata,43,0
+criticality,p4_host,Drive Modification,43,0
+criticality,p4_host,Asset Inventory,43,0
+criticality,p5_controller,Network Traffic Content,85,44
+criticality,p5_controller,Application Log Content,85,41
+criticality,p5_controller,Network Traffic Flow,85,31
+criticality,p5_controller,Process Creation,85,21
+criticality,p5_controller,Device Alarm,85,17
+criticality,p5_controller,Command Execution,85,16
+criticality,p5_controller,Process History/Live Data,85,12
+criticality,p5_controller,Process/Event Alarm,85,9
+criticality,p5_controller,Process Termination,85,8
+criticality,p5_controller,OS API Execution,85,8
+criticality,p5_controller,Logon Session Creation,85,8
+criticality,p5_controller,Asset Inventory,85,7
+criticality,p5_controller,File Modification,85,6
+criticality,p5_controller,File Access,85,6
+criticality,p5_controller,Script Execution,85,5
+criticality,p5_controller,Windows Registry Key Modification,85,4
+criticality,p5_controller,Software,85,4
+criticality,p5_controller,Network Connection Creation,85,4
+criticality,p5_controller,Firmware Modification,85,4
+criticality,p5_controller,File Metadata,85,4
+criticality,p5_controller,File Creation,85,4
+criticality,p5_controller,Process Metadata,85,3
+criticality,p5_controller,Network Share Access,85,3
+criticality,p5_controller,Module Load,85,3
+criticality,p5_controller,Logon Session Metadata,85,3
+criticality,p5_controller,Service Creation,85,2
+criticality,p5_controller,File Deletion,85,2
+criticality,p5_controller,Drive Creation,85,2
+criticality,p5_controller,Windows Registry Key Deletion,85,1
+criticality,p5_controller,User Account Authentication,85,1
+criticality,p5_controller,Service Modification,85,1
+criticality,p5_controller,Service Metadata,85,1
+criticality,p5_controller,Scheduled Job Modification,85,1
+criticality,p5_controller,Scheduled Job Creation,85,1
+criticality,p5_controller,Scheduled Job Metadata,85,0
+criticality,p5_controller,Drive Modification,85,0
+criticality,p5b_controller_strict,Network Traffic Content,44,18
+criticality,p5b_controller_strict,Process Creation,44,16
+criticality,p5b_controller_strict,Network Traffic Flow,44,15
+criticality,p5b_controller_strict,Command Execution,44,14
+criticality,p5b_controller_strict,OS API Execution,44,8
+criticality,p5b_controller_strict,Logon Session Creation,44,6
+criticality,p5b_controller_strict,File Modification,44,6
+criticality,p5b_controller_strict,Script Execution,44,5
+criticality,p5b_controller_strict,File Access,44,5
+criticality,p5b_controller_strict,File Metadata,44,4
+criticality,p5b_controller_strict,Windows Registry Key Modification,44,3
+criticality,p5b_controller_strict,Process Metadata,44,3
+criticality,p5b_controller_strict,Module Load,44,3
+criticality,p5b_controller_strict,Device Alarm,44,3
+criticality,p5b_controller_strict,Software,44,2
+criticality,p5b_controller_strict,Network Share Access,44,2
+criticality,p5b_controller_strict,Network Connection Creation,44,2
+criticality,p5b_controller_strict,Logon Session Metadata,44,2
+criticality,p5b_controller_strict,File Deletion,44,2
+criticality,p5b_controller_strict,File Creation,44,2
+criticality,p5b_controller_strict,Drive Creation,44,2
+criticality,p5b_controller_strict,Windows Registry Key Deletion,44,1
+criticality,p5b_controller_strict,User Account Authentication,44,1
+criticality,p5b_controller_strict,Service Modification,44,1
+criticality,p5b_controller_strict,Service Metadata,44,1
+criticality,p5b_controller_strict,Service Creation,44,1
+criticality,p5b_controller_strict,Scheduled Job Modification,44,1
+criticality,p5b_controller_strict,Scheduled Job Creation,44,1
+criticality,p5b_controller_strict,Process/Event Alarm,44,1
+criticality,p5b_controller_strict,Process Termination,44,1
+criticality,p5b_controller_strict,Process History/Live Data,44,1
+criticality,p5b_controller_strict,Firmware Modification,44,1
+criticality,p5b_controller_strict,Scheduled Job Metadata,44,0
+criticality,p5b_controller_strict,Drive Modification,44,0
+criticality,p5b_controller_strict,Asset Inventory,44,0

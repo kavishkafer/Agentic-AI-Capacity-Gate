@@ -27,9 +27,16 @@ from gate import Outcome     # noqa: E402
 
 OUT = ROOT / "out"
 HERE = Path(__file__).resolve().parent
-ORDER = ["p1_flow", "p2_dpi", "p3_historian", "p4_host", "p5_controller"]
+
+# TIERS are cumulative and ordered; STRICT is a VARIANT of the last tier, not a
+# sixth tier. Monotonicity is therefore tested over TIERS only — p5b has less
+# coverage than p5, so a rise from p5 to p5b is expected, not a failure.
+TIERS = ["p1_flow", "p2_dpi", "p3_historian", "p4_host", "p5_controller"]
+STRICT = "p5b_controller_strict"
+ORDER = TIERS + [STRICT]
 SHORT = {"p1_flow": "flow", "p2_dpi": "+DPI", "p3_historian": "+historian",
-         "p4_host": "+host", "p5_controller": "+controller"}
+         "p4_host": "+host", "p5_controller": "+controller",
+         STRICT: "+ctrl strict"}
 
 BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
 INK, INK2, GRID, SURFACE = "#0b0b0b", "#52514e", "#d9d8d3", "#ffffff"
@@ -155,7 +162,7 @@ def main() -> None:
     print("=" * 84)
     for model in models:
         vs = [(p, rates(sweep[(model, p)])["violation_resolved"])
-              for p in ORDER if (model, p) in sweep]
+              for p in TIERS if (model, p) in sweep]
         if len(vs) < 2:
             continue
         seq = [v for _, v in vs]
@@ -165,9 +172,14 @@ def main() -> None:
         print(f"  H1 violation falls with instrumentation : "
               f"{'HOLDS' if mono else 'FAILS — not monotone'}"
               f"   ({seq[0]:.0%} -> {seq[-1]:.0%}, drop {drop:+.0%})")
-        last = vs[-1][0]
-        print(f"  H1 approaches zero at {SHORT[last]:<12}: "
-              f"{'yes' if seq[-1] < 0.10 else 'NO — still ' + format(seq[-1], '.0%')}")
+
+        # The registered floor is p5b, not p5: p5's 100% ceiling rests entirely
+        # on one generic catch-all component (see experiments/profile_robustness).
+        floor_key = STRICT if (model, STRICT) in sweep else vs[-1][0]
+        floor = rates(sweep[(model, floor_key)])["violation_resolved"]
+        print(f"  H1 approaches zero at {SHORT[floor_key]:<12}: "
+              f"{'yes' if floor < 0.10 else 'NO — still ' + format(floor, '.0%')}"
+              + ("" if floor_key == STRICT else "   [p5b not run — weaker test]"))
         gaps = [rates(sweep[(model, p)])["says_provable"] - ceil[p]
                 for p in ORDER if (model, p) in sweep]
         tracks = max(abs(g) for g in gaps) < 0.15
@@ -231,24 +243,33 @@ def _figure(sweep, models, ceil) -> None:
         "figure.facecolor": SURFACE, "axes.facecolor": SURFACE,
         "savefig.facecolor": SURFACE,
     })
-    fig, ax = plt.subplots(figsize=(5.6, 3.0))
+    fig, ax = plt.subplots(figsize=(6.2, 3.0))
     xs = range(len(ORDER))
+    sx = len(TIERS)          # x position of the p5b variant, drawn detached
 
-    ax.plot(list(xs), [ceil[p] for p in ORDER], color=INK2, linewidth=1.4,
-            linestyle=(0, (4, 3)), marker="o", markersize=4,
+    ax.plot(list(range(len(TIERS))), [ceil[p] for p in TIERS], color=INK2,
+            linewidth=1.4, linestyle=(0, (4, 3)), marker="o", markersize=4,
             label="evidenceable (ontology limit)")
+    ax.plot([sx], [ceil[STRICT]], color=INK2, marker="o", markersize=4,
+            markerfacecolor=SURFACE, linestyle="none")
 
     for model, colour in zip(models, [BLUE, ORANGE, AQUA]):
         ys, xx = [], []
-        for i, p in enumerate(ORDER):
+        for i, p in enumerate(TIERS):
             if (model, p) in sweep:
                 xx.append(i)
                 ys.append(rates(sweep[(model, p)])["violation_resolved"])
         if ys:
             ax.plot(xx, ys, color=colour, linewidth=2, marker="o", markersize=5,
                     label=model)
+        if (model, STRICT) in sweep:
+            ax.plot([sx], [rates(sweep[(model, STRICT)])["violation_resolved"]],
+                    color=colour, marker="o", markersize=5,
+                    markerfacecolor=SURFACE, linestyle="none")
 
-    ax.set_xticks(list(xs), [SHORT[p] for p in ORDER])
+    ax.axvline(sx - 0.5, color=GRID, linewidth=1)
+    ax.text(sx, 1.0, "variant", ha="center", va="top", fontsize=7, color=INK2)
+    ax.set_xticks(list(xs), [SHORT[p] for p in ORDER], fontsize=8)
     ax.set_ylim(0, 1.02)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
     ax.set_xlabel("instrumentation (cumulative)")

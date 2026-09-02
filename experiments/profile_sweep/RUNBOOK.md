@@ -24,14 +24,19 @@ re-scores the existing bare answers from `results/experiment_*.csv` against all
 five profiles with **zero** model calls.
 
 Consequence: **only the `instrumented` condition needs running.** That halves the
-job from ~8,100 calls to ~4,065.
+job from ~9,756 calls to ~4,878.
 
 ## Cost
 
-271 items × 5 profiles × 3 models = **4,065 calls**, instrumented only.
+271 items × 6 profiles × 3 models = **4,878 calls**, instrumented only.
+
+Six, not five: `p5b_controller_strict` was added by Amendment 1 in
+[HYPOTHESIS.md](HYPOTHESIS.md) after the robustness analysis showed p5's 100%
+ceiling rests on one catch-all component. It is a variant of p5, not a sixth
+cumulative tier.
 
 Extrapolating from the first run's timing: deepseek and gemma ~20–40 min per
-profile, qwen ~10× slower per call. Budget roughly **6–10 hours** total,
+profile, qwen ~10× slower per call. Budget roughly **7–12 hours** total,
 overnight. The driver is resumable — a completed profile is skipped, so an
 interrupted sweep restarts where it stopped.
 
@@ -83,7 +88,8 @@ detection model permits, and no model can beat it.
 
 | what you see | what it means |
 |---|---|
-| violation falls toward zero at `+controller` | **H1 holds.** The gate tracks instrumentation. The `p3` result stands. |
+| violation falls toward zero at `+ctrl strict` | **H1 holds.** The gate tracks instrumentation. The `p3` result stands. |
+| it falls only at `+controller`, not `+ctrl strict` | the drop was carried by the catch-all component. Report p5b as the honest tier and say so. |
 | violation stays flat | **H1 fails.** The gate is not measuring what it claims. Stop and investigate before writing. |
 | `says_provable` tracks the dashed line | models are calibrated to available evidence; the gate's value narrows to the residual |
 | `says_provable` ignores the dashed line | models assert provability independently of what they have — the core argument for external enforcement |

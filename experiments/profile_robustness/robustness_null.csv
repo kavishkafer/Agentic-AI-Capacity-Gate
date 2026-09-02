@@ -1,0 +1,7 @@
+part,profile,size,effective_size,authored_pass,null_median,null_p05,null_p95,percentile,note
+null,p1_flow,2,2,1,0,0,2,0.7575,
+null,p2_dpi,3,3,8,1,0,3,0.999,
+null,p3_historian,7,7,10,3,0,9,0.9765,
+null,p4_host,34,32,43,75,39,82,0.1105,
+null,p5_controller,36,34,85,,,,,degenerate
+null,p5b_controller_strict,35,33,44,81,44,84,0.052,

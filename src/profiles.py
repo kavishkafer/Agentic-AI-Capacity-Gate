@@ -113,6 +113,36 @@ T5_CONTROLLER = Profile(
 TIERS = (T1_NETWORK_FLOW, T2_DPI, T3_HISTORIAN, T4_HOST, T5_CONTROLLER)
 
 
+# --- variants -------------------------------------------------------------- #
+#
+# Not a further tier. A variant is an existing tier with a stated component
+# removed, used to test whether a result depends on one component.
+
+CATCH_ALL = "Application Log Content"
+"""ATT&CK's generic application-log component.
+
+It appears in 41 ICS analytics but is the *sole* requirement of only 2. In the
+other 39 it is the last missing piece of an analytic whose other requirements
+are already met, so adding it completes them all at once: it alone carries
+p5_controller from 51.8% to 100% of checkable techniques.
+
+Whether it belongs in the controller tier is our judgement, not MITRE's. A PLC
+does emit application logs, so its placement is defensible — but the ATT&CK
+component is far broader than that reading, and the top tier's headline number
+should not rest on it unexamined. Hence p5b.
+"""
+
+
+def _variants() -> dict[str, tuple[str, frozenset[str]]]:
+    base = {k: cov for k, _, cov in cumulative()}
+    return {
+        "p5b_controller_strict": (
+            "+ controller-side logging, catch-all excluded",
+            base["p5_controller"] - {CATCH_ALL},
+        ),
+    }
+
+
 def cumulative() -> list[tuple[str, str, frozenset[str]]]:
     """Cumulative coverage sets: (key, label, coverage) for each tier in order."""
     acc: set[str] = set()
@@ -127,4 +157,22 @@ def named(key: str) -> frozenset[str]:
     for k, _, cov in cumulative():
         if k == key:
             return cov
+    v = _variants()
+    if key in v:
+        return v[key][1]
     raise KeyError(key)
+
+
+def label(key: str) -> str:
+    for k, lbl, _ in cumulative():
+        if k == key:
+            return lbl
+    v = _variants()
+    if key in v:
+        return v[key][0]
+    raise KeyError(key)
+
+
+def all_keys() -> list[str]:
+    """Cumulative tiers in order, then variants."""
+    return [k for k, _, _ in cumulative()] + list(_variants())
