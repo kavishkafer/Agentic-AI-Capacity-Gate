@@ -1,0 +1,84 @@
+########## DEEPSEEK ##########
+revoked->current map (9 entries):
+  T0803      -> T1691.001    Command Message
+  T0804      -> T1691.002    Reporting Message
+  T0805      -> T1695.001    Serial COM
+  T0812      -> T1694.001    Default Credentials
+  T0839      -> T1693.002    Module Firmware
+  T0855      -> T1692.001    Command Message
+  T0856      -> T1692.002    Reporting Message
+  T0857      -> T1693.001    System Firmware
+  T0891      -> T1694.002    Hardcoded Credentials
+
+--- bare  (n=271) ---
+  unresolvable ids                   31.7%  (86)  <- revoked in v19.2
+  attribution_correct  as-scored      5.5%  (15)
+  attribution_correct  ID-remapped    8.9%  (24)
+  capacity_violation   GENUINE       40.6%  (110)  <- ATT&CK consulted
+  capacity_violation   stale-id      11.1%  (30)  <- never checked
+  missed_by_grounding  GENUINE        1.8%  (5)
+
+--- instrumented  (n=271) ---
+  unresolvable ids                   31.4%  (85)  <- revoked in v19.2
+  attribution_correct  as-scored      4.8%  (13)
+  attribution_correct  ID-remapped    8.1%  (22)
+  capacity_violation   GENUINE        7.4%  (20)  <- ATT&CK consulted
+  capacity_violation   stale-id       0.4%  (1)  <- never checked
+  missed_by_grounding  GENUINE        7.4%  (20)
+
+########## GEMMA ##########
+revoked->current map (9 entries):
+  T0803      -> T1691.001    Command Message
+  T0804      -> T1691.002    Reporting Message
+  T0805      -> T1695.001    Serial COM
+  T0812      -> T1694.001    Default Credentials
+  T0839      -> T1693.002    Module Firmware
+  T0855      -> T1692.001    Command Message
+  T0856      -> T1692.002    Reporting Message
+  T0857      -> T1693.001    System Firmware
+  T0891      -> T1694.002    Hardcoded Credentials
+
+--- bare  (n=271) ---
+  unresolvable ids                   14.8%  (40)  <- revoked in v19.2
+  attribution_correct  as-scored     17.3%  (47)
+  attribution_correct  ID-remapped   19.2%  (52)
+  capacity_violation   GENUINE       76.0%  (206)  <- ATT&CK consulted
+  capacity_violation   stale-id       7.0%  (19)  <- never checked
+  missed_by_grounding  GENUINE       19.6%  (53)
+
+--- instrumented  (n=271) ---
+  unresolvable ids                   15.5%  (42)  <- revoked in v19.2
+  attribution_correct  as-scored     15.9%  (43)
+  attribution_correct  ID-remapped   17.7%  (48)
+  capacity_violation   GENUINE       57.9%  (157)  <- ATT&CK consulted
+  capacity_violation   stale-id       6.3%  (17)  <- never checked
+  missed_by_grounding  GENUINE       57.9%  (157)
+
+########## QWEN ##########
+revoked->current map (9 entries):
+  T0803      -> T1691.001    Command Message
+  T0804      -> T1691.002    Reporting Message
+  T0805      -> T1695.001    Serial COM
+  T0812      -> T1694.001    Default Credentials
+  T0839      -> T1693.002    Module Firmware
+  T0855      -> T1692.001    Command Message
+  T0856      -> T1692.002    Reporting Message
+  T0857      -> T1693.001    System Firmware
+  T0891      -> T1694.002    Hardcoded Credentials
+
+--- bare  (n=271) ---
+  unresolvable ids                    0.4%  (1)  <- revoked in v19.2
+  attribution_correct  as-scored      0.4%  (1)
+  attribution_correct  ID-remapped    0.4%  (1)
+  capacity_violation   GENUINE       31.0%  (84)  <- ATT&CK consulted
+  capacity_violation   stale-id      53.9%  (146)  <- never checked
+  missed_by_grounding  GENUINE       30.6%  (83)
+
+--- instrumented  (n=271) ---
+  unresolvable ids                    0.7%  (2)  <- revoked in v19.2
+  attribution_correct  as-scored      1.5%  (4)
+  attribution_correct  ID-remapped    1.5%  (4)
+  capacity_violation   GENUINE       18.8%  (51)  <- ATT&CK consulted
+  capacity_violation   stale-id      22.1%  (60)  <- never checked
+  missed_by_grounding  GENUINE       18.8%  (51)
+

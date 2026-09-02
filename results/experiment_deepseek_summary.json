@@ -1,0 +1,24 @@
+[
+  {
+    "condition": "bare",
+    "n": 271,
+    "parse_ok": 0.974169741697417,
+    "attribution_correct": 0.055350553505535055,
+    "model_says_provable": 0.6199261992619927,
+    "arm4_grounding_pass": 0.4022140221402214,
+    "arm5_capacity_pass": 0.15498154981549817,
+    "capacity_violation": 0.5166051660516605,
+    "missed_by_grounding": 0.02214022140221402
+  },
+  {
+    "condition": "instrumented",
+    "n": 271,
+    "parse_ok": 1.0,
+    "attribution_correct": 0.04797047970479705,
+    "model_says_provable": 0.11439114391143912,
+    "arm4_grounding_pass": 1.0,
+    "arm5_capacity_pass": 0.18450184501845018,
+    "capacity_violation": 0.07749077490774908,
+    "missed_by_grounding": 0.07749077490774908
+  }
+]

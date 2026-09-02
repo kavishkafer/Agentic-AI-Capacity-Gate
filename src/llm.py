@@ -85,26 +85,33 @@ class Client:
 
     # ------------------------------------------------------------------ #
 
-    def chat(self, system: str, user: str, temperature: float = 0.0) -> Reply:
+    def chat(self, system: str, user: str, temperature: float = 0.0,
+             max_tokens: int | None = None) -> Reply:
         if self.backend == "mock":
             return Reply(_mock_reply(user), "mock", "mock")
         try:
             if self.backend == "ollama":
+                options = {"temperature": temperature}
+                if max_tokens is not None:
+                    options["num_predict"] = max_tokens
                 out = _post(f"{self.host}/api/chat", {
                     "model": self.model,
                     "messages": [{"role": "system", "content": system},
                                  {"role": "user", "content": user}],
                     "stream": False,
-                    "options": {"temperature": temperature},
+                    "options": options,
                 }, self.timeout)
                 return Reply(out["message"]["content"], self.model, "ollama")
 
-            out = _post(f"{self.host}/v1/chat/completions", {
+            payload = {
                 "model": self.model,
                 "messages": [{"role": "system", "content": system},
                              {"role": "user", "content": user}],
                 "temperature": temperature,
-            }, self.timeout)
+            }
+            if max_tokens is not None:
+                payload["max_tokens"] = max_tokens
+            out = _post(f"{self.host}/v1/chat/completions", payload, self.timeout)
             return Reply(out["choices"][0]["message"]["content"], self.model, "openai")
 
         except (urllib.error.URLError, KeyError, TimeoutError, OSError) as e:

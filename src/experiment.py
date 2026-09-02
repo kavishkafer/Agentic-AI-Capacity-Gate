@@ -170,7 +170,11 @@ def main() -> None:
     ap.add_argument("--conditions", default="bare,instrumented")
     ap.add_argument("--list-models", action="store_true")
     ap.add_argument("--tag", default="", help="suffix for output files")
+    ap.add_argument("--max-tokens", type=int, default=1024,
+                    help="explicit generation cap, pinned equal across models "
+                         "for a controlled comparison (0 = server default)")
     args = ap.parse_args()
+    max_tokens = args.max_tokens or None
 
     client = llm.Client(args.backend, args.model, args.host)
     if args.list_models:
@@ -188,6 +192,7 @@ def main() -> None:
 
     print(f"backend={client.backend}  model={client.model or '(default)'}")
     print(f"profile={args.profile} ({len(coverage)} data components)")
+    print(f"max_tokens={max_tokens}")
     print(f"items={len(items)}\n")
 
     all_rows: list[dict] = []
@@ -199,7 +204,7 @@ def main() -> None:
         for i, item in enumerate(items, 1):
             p = (prompt_bare(item) if cond == "bare"
                  else prompt_instrumented(item, coverage, label))
-            r = client.chat(SYSTEM, p)
+            r = client.chat(SYSTEM, p, max_tokens=max_tokens)
             parsed = llm.parse_json(r.text) if r.ok else None
             row = score_one(item, parsed, coverage, ics)
             row["condition"] = cond
