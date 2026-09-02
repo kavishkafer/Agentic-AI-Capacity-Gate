@@ -38,6 +38,8 @@ def load_runs() -> dict[str, list[dict]]:
     for p in sorted(OUT.glob("experiment_*.csv")):
         if p.name.endswith("_summary.json"):
             continue
+        if p.name.startswith("experiment_sweep_"):
+            continue    # profile-sweep runs have their own analyser
         with p.open(encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 runs[row.get("model") or p.stem].append(row)
