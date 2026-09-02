@@ -155,40 +155,85 @@ def _figure(runs, conditions) -> None:
         "savefig.facecolor": SURFACE,
     })
 
+    # Instrumented only. In the bare condition the model is not told what
+    # telemetry exists, so arm 4 ("cited only components in coverage") is not
+    # testing the same thing, and any metric conditioned on arm 4 passing is
+    # deflated for reasons unrelated to capacity. Plotting both side by side
+    # invited exactly that misreading.
+    cond = "instrumented" if "instrumented" in conditions else conditions[-1]
     models = sorted(runs)
-    colours = [BLUE, ORANGE, AQUA][:len(models)]
-    fig, ax = plt.subplots(figsize=(5.6, 2.8))
-    w = 0.8 / max(1, len(models))
+    fig, ax = plt.subplots(figsize=(5.6, 3.0))
+    xs = list(range(len(models)))
 
-    for mi, (model, colour) in enumerate(zip(models, colours)):
-        xs, ys = [], []
-        for ci, cond in enumerate(conditions):
-            rs = [r for r in runs[model] if r["condition"] == cond]
-            xs.append(ci + (mi - (len(models) - 1) / 2) * (w + 0.012))
-            ys.append(frac(rs, "missed_by_grounding"))
-        ax.bar(xs, ys, width=w, color=colour, edgecolor=SURFACE, linewidth=2,
-               label=model[:22])
+    supported, violating = [], []
+    for model in models:
+        rs = [r for r in runs[model] if r["condition"] == cond]
+        v = frac(rs, "capacity_violation")
+        violating.append(v)
+        supported.append(max(0.0, frac(rs, "model_says_provable") - v))
 
-    ax.set_xticks(range(len(conditions)),
-                  [c.replace("instrumented", "told what telemetry exists")
-                    .replace("bare", "no telemetry context") for c in conditions])
+    ax.bar(xs, supported, width=0.55, color=BLUE, edgecolor=SURFACE,
+           linewidth=1.5, label="asserted and supportable")
+    ax.bar(xs, violating, width=0.55, bottom=supported, color=ORANGE,
+           edgecolor=SURFACE, linewidth=1.5, label="asserted but unsupportable")
+
+    right = len(models) - 1 + 0.85
+    ax.set_xlim(-0.55, right)
+    ceil = _item_ceiling()
+    if ceil is not None:
+        # Stop the rule short of the margin label rather than striking through it.
+        ax.plot([-0.55, len(models) - 1 + 0.28], [ceil, ceil], color=INK2,
+                linewidth=1.2, linestyle=(0, (4, 3)))
+        # In the right margin: every position over the plot collides with a bar.
+        ax.text(len(models) - 1 + 0.34, ceil, f"{ceil:.0%}\nontology\npermits",
+                ha="left", va="center", fontsize=7.5, color=INK2,
+                linespacing=1.35)
+
+    for x, (s, v) in enumerate(zip(supported, violating)):
+        ax.text(x, s + v + 0.012, f"{v:.0%} unsupportable", ha="center",
+                fontsize=8, color=INK2)
+
+    ax.set_xticks(xs, [m[:22] for m in models], fontsize=8)
+    ax.set_ylim(0, max(s + v for s, v in zip(supported, violating)) + 0.14)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
-    ax.set_ylabel("claims a grounding check would accept")
-    ax.set_title("Referential grounding accepts claims the evidence cannot support",
+    ax.set_ylabel("share of incident items")
+    ax.set_title("Models assert provability far beyond what the evidence permits",
                  fontsize=10, fontweight="600", loc="left", pad=10)
     ax.grid(axis="y", color=GRID, linewidth=0.6, alpha=0.7)
     ax.set_axisbelow(True)
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
+    for s_ in ("top", "right"):
+        ax.spines[s_].set_visible(False)
     leg = ax.legend(frameon=False, fontsize=8, loc="upper right")
     for t in leg.get_texts():
         t.set_color(INK2)
 
     for ext in ("pdf", "png"):
-        fig.savefig(OUT / f"fig4_missed_by_grounding.{ext}", bbox_inches="tight",
+        fig.savefig(OUT / f"fig4_capacity_violation.{ext}", bbox_inches="tight",
                     dpi=200 if ext == "png" else None)
     plt.close(fig)
-    print("wrote out/fig4_missed_by_grounding.pdf and .png")
+    print("wrote out/fig4_capacity_violation.pdf and .png")
+
+
+def _item_ceiling(profile: str = "p3_historian") -> float | None:
+    """Share of items whose GOLD technique is evidenceable at this profile.
+
+    The honest reference for the assertion rate: a model that attributed every
+    item correctly and asserted provability only when the ontology permits it
+    would land here. It is an item-level figure and so differs from the
+    technique-level ceiling (8.1% vs 11.8% at p3_historian) — the corpus is not
+    uniform over techniques."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import attack, gate, packets, profiles          # noqa: E402
+        from gate import Outcome                        # noqa: E402
+        ics = attack.load("ics")
+        cov = profiles.named(profile)
+        items = packets.load_items(ics)
+        ok = sum(gate.capacity(ics.techniques[i.gold_id], cov).outcome
+                 is Outcome.PASS for i in items)
+        return ok / len(items)
+    except Exception:
+        return None
 
 
 if __name__ == "__main__":
