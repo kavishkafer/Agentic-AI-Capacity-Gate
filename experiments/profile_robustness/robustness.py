@@ -175,7 +175,10 @@ def part4_null(techs, tier_pass: dict[str, int], rows: list) -> dict[str, float]
         draws = sorted(n_pass(techs, frozenset(rng.sample(pool, eff)))
                        for _ in range(N_NULL))
         q = lambda f: draws[min(int(f * N_NULL), N_NULL - 1)]
-        p = sum(d <= obs for d in draws) / N_NULL
+        # mid-p: counting ties as half avoids inflating percentiles on the
+        # small discrete counts the low tiers produce.
+        p = (sum(d < obs for d in draws)
+             + 0.5 * sum(d == obs for d in draws)) / N_NULL
         pct[key] = p
         print(f"{name:<22}{len(cov):>6}{eff:>5}{obs:>10}"
               f"{q(.50):>10}{q(.05):>10}{q(.95):>10}{p:>8.0%}")

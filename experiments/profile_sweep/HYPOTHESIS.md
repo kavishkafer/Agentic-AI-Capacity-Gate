@@ -26,6 +26,50 @@ Cost: +271 calls per model, +813 total.
 
 Nothing else changes, and no sweep data existed when this was written.
 
+**Disclosure.** No *instrumented* sweep data existed at registration or at this
+amendment. However, the zero-cost re-scoring of the ORIGINAL bare answers
+across profiles (see RUNBOOK §"Why bare is not re-run") had already been run
+and examined before this amendment, and it shows violation falling
+monotonically with instrumentation in the bare condition. The genuinely open
+predictions therefore concern the **instrumented** condition — in particular
+H3, whether models recalibrate when told what telemetry they have. We state
+this so the registration cannot be read as stronger than it is.
+
+## Amendment 2 — 2026-09-02, before any sweep run — PENDING RATIFICATION
+
+Decomposing the first experiment's violations by `arm5_outcome` shows the
+as-scored `capacity_violation` conflates three classes:
+
+| class | meaning | catchable by |
+|---|---|---|
+| `fail` | id resolves, ontology consulted, evidence structurally insufficient | **capacity gating only** |
+| `undefined` | ontology specifies no requirements | neither check |
+| `unknown-technique` | id does not resolve | plain id-resolution grounding |
+
+Only `fail` (and arguably `undefined`) is invisible to referential grounding;
+counting unresolvable ids toward "invisible to grounding" overstates the
+contribution, materially for qwen (22.5% of items).
+
+Separately, v19 renumbered nine ICS techniques into T16xx sub-techniques
+(April 2026, at or after every evaluated model's training cutoff), so models
+answering the pre-v19 id (e.g. T0857 for System Firmware) are scored
+unknown-technique for knowing only the numbering they were trained on. Every
+remap target FAILS at `p3_historian`, so resolving stale ids never clears a
+violation — it reclassifies it from unknown-id into `fail`.
+
+**Amendment (pending supervisor ratification):**
+
+1. Raw CSVs and the registered metric `capacity_violation` are unchanged.
+2. All reporting decomposes violations into the three classes.
+3. The headline defensible number is **grounding-invisible after stale-id
+   remapping** = violations whose remap-resolved technique is `fail` or
+   `undefined`. On the first experiment (instrumented): deepseek 7%,
+   gemma 58%, qwen 19%.
+4. Attribution is reported both as-scored and remapped.
+5. The sweep analyser's registered quantities (H1's `violation_resolved`
+   sequence) are computed exactly as registered; the decomposition is
+   reported alongside, derived from the same CSVs.
+
 ## The objection this answers
 
 At `p3_historian` only **10 of 97** ICS techniques are evidenceable at all. A

@@ -68,13 +68,16 @@ it. Same family of result as `UNDEFINED`.
 
 ### The tiers are not cherry-picked, and the reason the large ones look bad is the finding
 
-| tier | effective size | authored | random median | percentile |
+| tier | effective size | authored | random median | percentile (mid-p) |
 |---|---|---|---|---|
-| flow | 2 | 1 | 0 | 76% |
-| +DPI | 3 | 8 | 1 | 100% |
-| +historian | 7 | 10 | 3 | 98% |
-| +host | 32 | 43 | 75 | 11% |
-| +ctrl strict | 33 | 44 | 81 | 5% |
+| flow | 2 | 1 | 0 | 67% |
+| +DPI | 3 | 8 | 1 | >99% |
+| +historian | 7 | 10 | 3 | 97% |
+| +host | 32 | 43 | 75 | 10% |
+| +ctrl strict | 33 | 44 | 81 | 4% |
+
+Percentiles are mid-p (ties counted half), so the small discrete counts at the
+low tiers do not inflate them.
 
 The small tiers sit **above** their size class — they were not built to look
 restrictive, and the low ceilings at p1–p3 are the ontology's, not ours.
