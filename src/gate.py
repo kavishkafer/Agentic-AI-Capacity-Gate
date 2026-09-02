@@ -132,10 +132,41 @@ def evaluate_corpus(
     return out
 
 
-def evidenceable_fraction(verdicts: dict[str, Verdict]) -> float:
-    if not verdicts:
+DENOMINATOR = "all"
+"""Reporting denominator for every evidenceable fraction in the project.
+
+  "all"       — all techniques in the corpus (97 for ICS). The operator-facing
+                number: of everything in the threat model, this much is provable
+                at your site. UNDEFINED techniques count against you, which is
+                honest, provided the paper says why they can never be recovered.
+  "checkable" — techniques the ontology states requirements for (85 for ICS).
+                Isolates instrumentation adequacy from ontology silence.
+
+Set to "all" (supervisor decision, 2 Sep 2026), with the 12 UNDEFINED
+techniques reported explicitly alongside every headline figure. Consequence to
+state plainly wherever a full-instrumentation figure appears: this ratio's
+ceiling is 85/97 = 87.6%, not 100%, and no instrumentation spend closes the
+remaining 12.4%.
+
+Changing this changes REPORTING only. The gate is unaffected: an UNDEFINED
+technique is never PASS under either setting, so no verdict, violation count,
+or pre-registered prediction moves.
+"""
+
+
+def denominator(verdicts: dict[str, Verdict], which: str | None = None) -> int:
+    """Size of the reporting denominator — see DENOMINATOR."""
+    if (which or DENOMINATOR) == "all":
+        return len(verdicts)
+    return sum(v.outcome is not Outcome.UNDEFINED for v in verdicts.values())
+
+
+def evidenceable_fraction(verdicts: dict[str, Verdict],
+                          which: str | None = None) -> float:
+    n = denominator(verdicts, which)
+    if not n:
         return 0.0
-    return sum(v.evidenceable for v in verdicts.values()) / len(verdicts)
+    return sum(v.evidenceable for v in verdicts.values()) / n
 
 
 # --------------------------------------------------------------------------- #

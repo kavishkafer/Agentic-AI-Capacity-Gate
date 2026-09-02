@@ -124,7 +124,8 @@ CATCH_ALL = "Application Log Content"
 It appears in 41 ICS analytics but is the *sole* requirement of only 2. In the
 other 39 it is the last missing piece of an analytic whose other requirements
 are already met, so adding it completes them all at once: it alone carries
-p5_controller from 51.8% to 100% of checkable techniques.
+p5_controller from 45.4% to 87.6% of all 97 ICS techniques
+(51.8% to 100% of the 85 for which requirements exist).
 
 Whether it belongs in the controller tier is our judgement, not MITRE's. A PLC
 does emit application logs, so its placement is defensible — but the ATT&CK

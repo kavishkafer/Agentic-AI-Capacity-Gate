@@ -70,10 +70,10 @@ def fig_ladder(ics) -> None:
     for _key, label, cov in profiles.cumulative():
         v = gate.evaluate_corpus(ics, cov)
         c = Counter(x.outcome for x in v.values())
-        checkable = c[Outcome.PASS] + c[Outcome.FAIL]
         labels.append(label.replace("+ ", "+ "))
-        fracs.append(c[Outcome.PASS] / checkable)
+        fracs.append(gate.evidenceable_fraction(v))
         counts.append(c[Outcome.PASS])
+    total = len(gate.evaluate_corpus(ics, frozenset()))
 
     fig, ax = plt.subplots(figsize=(5.4, 2.6))
     y = range(len(labels))
@@ -83,7 +83,7 @@ def fig_ladder(ics) -> None:
         b.set_capstyle("round")
 
     for i, (f, n) in enumerate(zip(fracs, counts)):
-        ax.text(f + 0.015, i, f"{f:.0%}  ({n}/85)", va="center",
+        ax.text(f + 0.015, i, f"{f:.0%}  ({n}/{total})", va="center",
                 ha="left", fontsize=8.5, color=INK)
 
     ax.set_yticks(list(y), labels, fontsize=8.5)
@@ -91,7 +91,7 @@ def fig_ladder(ics) -> None:
     ax.set_xlim(0, 1.20)
     ax.xaxis.set_major_formatter(PercentFormatter(1.0))
     ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_xlabel("ICS techniques evidenceable (of 85 checkable)")
+    ax.set_xlabel("ICS techniques evidenceable (of all 97)")
     ax.set_title("Instrumentation determines what can be proven at all",
                  fontsize=10, fontweight="600", loc="left", pad=10)
     ax.grid(axis="x", color=GRID, linewidth=0.6, alpha=0.7)

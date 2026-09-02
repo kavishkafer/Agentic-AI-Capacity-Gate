@@ -50,11 +50,19 @@ BLUE, ORANGE, INK, INK2, GRID, SURFACE = (
 # --------------------------------------------------------------------------- #
 
 def checkable(ics) -> list:
-    """Techniques the ontology actually states requirements for. UNDEFINED
-    techniques are excluded everywhere: no instrumentation makes them
-    evidenceable, so including them would flatter every profile equally."""
+    """Techniques the ontology states requirements for.
+
+    These are the only ones any instrumentation can move, so criticality and
+    the null test operate on them. REPORTING, however, divides by all 97 (see
+    gate.DENOMINATOR): the 12 UNDEFINED techniques count against every profile
+    equally, which is why this ratio tops out at 85/97 = 87.6%."""
     return [t for t in ics.techniques.values()
             if t.analytics and any(a.data_components for a in t.analytics)]
+
+
+def total(ics) -> int:
+    """Reporting denominator: all techniques in the corpus."""
+    return len(ics.techniques)
 
 
 def n_pass(techs, cov: frozenset[str]) -> int:
@@ -63,11 +71,11 @@ def n_pass(techs, cov: frozenset[str]) -> int:
 
 # --------------------------------------------------------------------------- #
 
-def part1_tiers(techs, rows: list) -> dict[str, int]:
+def part1_tiers(techs, rows: list, N: int) -> dict[str, int]:
     print("=" * 78)
     print("1. TIER SUMMARY - what each tier buys")
     print("=" * 78)
-    print(f"{'tier':<16}{'n_dc':>6}{'added':>7}{'pass':>7}{'of check':>10}"
+    print(f"{'tier':<16}{'n_dc':>6}{'added':>7}{'pass':>7}{'of 97':>10}"
           f"{'marginal':>10}{'per dc':>9}")
     got: dict[str, int] = {}
     prev = 0
@@ -75,24 +83,28 @@ def part1_tiers(techs, rows: list) -> dict[str, int]:
         p = n_pass(techs, cov)
         added = len([t for t in prof_mod.TIERS if t.key == key][0].adds)
         got[key] = p
-        print(f"{SHORT[key]:<16}{len(cov):>6}{added:>7}{p:>7}{p/len(techs):>9.1%}"
+        print(f"{SHORT[key]:<16}{len(cov):>6}{added:>7}{p:>7}{p/N:>9.1%}"
               f"{p - prev:>+10}{(p - prev) / added:>9.2f}")
         rows.append({"part": "tier", "profile": key, "n_components": len(cov),
                      "components_added": added, "n_pass": p,
-                     "frac_pass": round(p / len(techs), 4),
+                     "frac_pass": round(p / N, 4),
                      "marginal": p - prev,
                      "per_component": round((p - prev) / added, 3)})
         prev = p
     cov = prof_mod.named(STRICT)
     p = n_pass(techs, cov)
     got[STRICT] = p
-    print(f"{'+ctrl strict':<16}{len(cov):>6}{'-1':>7}{p:>7}{p/len(techs):>9.1%}"
+    print(f"{'+ctrl strict':<16}{len(cov):>6}{'-1':>7}{p:>7}{p/N:>9.1%}"
           f"{'':>10}{'':>9}   variant of p5")
     rows.append({"part": "tier", "profile": STRICT, "n_components": len(cov),
                  "components_added": -1, "n_pass": p,
-                 "frac_pass": round(p / len(techs), 4),
+                 "frac_pass": round(p / N, 4),
                  "marginal": "", "per_component": ""})
-    print(f"\n{len(techs)} checkable techniques (UNDEFINED excluded).")
+    print(f"\n{len(techs)} of {N} techniques are checkable. The other "
+          f"{N - len(techs)} are UNDEFINED:")
+    print("the ontology states no requirements, so no instrumentation can ever")
+    print(f"evidence them. They count against every tier, which is why this")
+    print(f"column's ceiling is {len(techs)}/{N} = {len(techs)/N:.1%}, not 100%.")
     return got
 
 
@@ -118,7 +130,7 @@ def part2_criticality(techs, rows: list) -> None:
                          "loss_if_removed": loss})
 
 
-def part3_catchall(techs, rows: list) -> None:
+def part3_catchall(techs, rows: list, N: int) -> None:
     print("\n" + "=" * 78)
     print(f"3. CATCH-ALL - quarantining '{prof_mod.CATCH_ALL}'")
     print("=" * 78)
@@ -136,7 +148,7 @@ def part3_catchall(techs, rows: list) -> None:
     for key, _label, cov in prof_mod.cumulative():
         a = n_pass(techs, cov)
         b = n_pass(techs, cov - {prof_mod.CATCH_ALL})
-        print(f"{SHORT[key]:<16}{a/len(techs):>11.1%}{b/len(techs):>12.1%}"
+        print(f"{SHORT[key]:<16}{a/N:>11.1%}{b/N:>12.1%}"
               f"{b - a:>+9}")
         rows.append({"part": "catch_all", "profile": key, "n_pass_with": a,
                      "n_pass_without": b, "delta": b - a})
@@ -217,7 +229,7 @@ def write(rows: list, part: str) -> None:
     print(f"  {path.name} ({len(sel)} rows)")
 
 
-def figure(techs, ics) -> None:
+def figure(techs, ics, N: int) -> None:
     try:
         import matplotlib
         matplotlib.use("Agg")
@@ -237,7 +249,7 @@ def figure(techs, ics) -> None:
     })
     fig, (ax, bx) = plt.subplots(1, 2, figsize=(9.2, 3.2))
 
-    n = len(techs)
+    n = N
     with_ca, without = [], []
     for _k, _l, cov in prof_mod.cumulative():
         with_ca.append(n_pass(techs, cov) / n)
@@ -260,7 +272,7 @@ def figure(techs, ics) -> None:
                   fontsize=7.5)
     ax.set_ylim(0, 1.04)
     ax.yaxis.set_major_formatter(PercentFormatter(1.0))
-    ax.set_ylabel("checkable techniques evidenceable")
+    ax.set_ylabel("ICS techniques evidenceable (of 97)")
     ax.set_title("The ceiling depends on one data component",
                  fontsize=10, fontweight="600", loc="left", pad=10)
     ax.legend(frameon=False, fontsize=8, loc="upper left")
@@ -269,7 +281,7 @@ def figure(techs, ics) -> None:
     bx.plot(range(1, len(acq) + 1), [c / n for _, c, _ in acq],
             color=BLUE, lw=2, marker="o", ms=4)
     bx.set_xlabel("data components instrumented (greedy order)")
-    bx.set_ylabel("checkable techniques evidenceable")
+    bx.set_ylabel("ICS techniques evidenceable (of 97)")
     bx.set_ylim(0, 1.04)
     bx.yaxis.set_major_formatter(PercentFormatter(1.0))
     bx.set_title("What to instrument first",
@@ -294,17 +306,18 @@ def main() -> None:
     techs = checkable(ics)
     rows: list[dict] = []
 
-    tier_pass = part1_tiers(techs, rows)
+    N = total(ics)
+    tier_pass = part1_tiers(techs, rows, N)
     part2_criticality(techs, rows)
-    part3_catchall(techs, rows)
+    part3_catchall(techs, rows, N)
     pct = part4_null(techs, tier_pass, rows)
     part5_acquisition(ics, rows)
 
     print("\n" + "=" * 78)
     print("VERDICT")
     print("=" * 78)
-    full = tier_pass["p5_controller"] / len(techs)
-    strict = tier_pass[STRICT] / len(techs)
+    full = tier_pass["p5_controller"] / N
+    strict = tier_pass[STRICT] / N
     print(f"p5 ceiling {full:.0%} as authored, {strict:.0%} with the catch-all")
     print(f"excluded. The strict tier is the conservative number and both are")
     print("reported. H1's 'approaches zero at p5' is registered against p5b.")
@@ -328,7 +341,7 @@ def main() -> None:
     print("\nwrote:")
     for part in ("tier", "criticality", "catch_all", "null", "acquisition"):
         write(rows, part)
-    figure(techs, ics)
+    figure(techs, ics, N)
 
 
 if __name__ == "__main__":

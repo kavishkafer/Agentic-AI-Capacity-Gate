@@ -48,12 +48,12 @@ def b(v) -> bool:
 
 
 def ceiling(ics, profile: str) -> float:
-    """Fraction of CHECKABLE techniques evidenceable at this profile —
-    the ontology's own limit, independent of any model."""
-    cov = prof_mod.named(profile)
-    v = gate.evaluate_corpus(ics, cov)
-    checkable = [x for x in v.values() if x.outcome is not Outcome.UNDEFINED]
-    return sum(x.outcome is Outcome.PASS for x in checkable) / len(checkable)
+    """Fraction of ALL techniques evidenceable at this profile — the ontology's
+    own limit, independent of any model. Denominator per gate.DENOMINATOR: the
+    12 UNDEFINED techniques count against every profile, so this tops out at
+    85/97 = 87.6%, not 100%."""
+    return gate.evidenceable_fraction(
+        gate.evaluate_corpus(ics, prof_mod.named(profile)))
 
 
 def load_sweep() -> dict[tuple[str, str], list[dict]]:
@@ -249,7 +249,7 @@ def _figure(sweep, models, ceil) -> None:
 
     ax.plot(list(range(len(TIERS))), [ceil[p] for p in TIERS], color=INK2,
             linewidth=1.4, linestyle=(0, (4, 3)), marker="o", markersize=4,
-            label="evidenceable (ontology limit)")
+            label="evidenceable (ontology limit, of 97)")
     ax.plot([sx], [ceil[STRICT]], color=INK2, marker="o", markersize=4,
             markerfacecolor=SURFACE, linestyle="none")
 

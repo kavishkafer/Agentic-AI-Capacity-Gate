@@ -48,7 +48,9 @@ requirements are already satisfied, so it lands all at once:
 | tier | as authored | catch-all excluded |
 |---|---|---|
 | p1_flow … p4_host | unchanged | unchanged |
-| **p5_controller** | **100.0%** | **51.8%** |
+| **p5_controller** | **87.6%** | **45.4%** |
+
+(of all 97 ICS techniques; 100% → 51.8% of the 85 checkable)
 
 This is why `p5b_controller_strict` was added and why
 [HYPOTHESIS.md Amendment 1](../profile_sweep/HYPOTHESIS.md) re-registers H1's

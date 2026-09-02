@@ -60,20 +60,26 @@ def main() -> None:
     print("=" * 70)
     print("TABLE 2 — Evidenceable ICS techniques by instrumentation profile")
     print("=" * 70)
-    print(f"{'profile':<34}{'PASS':>7}{'FAIL':>7}{'UNDEF':>7}{'% of checkable':>16}")
+    print("Headline denominator is all 97 techniques. The 12 UNDEFINED ones")
+    print("have no stated detection requirements, so they can never be")
+    print("evidenceable: this column's ceiling is 85/97 = 87.6%, not 100%.")
+    print(f"{'profile':<34}{'PASS':>7}{'FAIL':>7}{'UNDEF':>7}"
+          f"{'% of all 97':>14}{'% of checkable':>16}")
 
     prof_rows = []
     for key, label, cov in profiles.cumulative():
         v = gate.evaluate_corpus(ics, cov)
         c = counts(v)
-        checkable = c[Outcome.PASS] + c[Outcome.FAIL]
-        pct = c[Outcome.PASS] / checkable if checkable else 0.0
+        pct_all = gate.evidenceable_fraction(v, "all")
+        pct_chk = gate.evidenceable_fraction(v, "checkable")
         print(f"{label:<34}{c[Outcome.PASS]:>7}{c[Outcome.FAIL]:>7}"
-              f"{c[Outcome.UNDEFINED]:>7}{pct:>15.1%}")
+              f"{c[Outcome.UNDEFINED]:>7}{pct_all:>13.1%}{pct_chk:>15.1%}")
         prof_rows.append({
             "profile": key, "label": label, "n_components": len(cov),
             "pass": c[Outcome.PASS], "fail": c[Outcome.FAIL],
-            "undefined": c[Outcome.UNDEFINED], "pct_of_checkable": round(pct, 4),
+            "undefined": c[Outcome.UNDEFINED],
+            "pct_of_all": round(pct_all, 4),
+            "pct_of_checkable": round(pct_chk, 4),
         })
 
     with (OUT / "profiles_ics.csv").open("w", newline="", encoding="utf-8") as f:

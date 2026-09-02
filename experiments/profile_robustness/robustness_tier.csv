@@ -1,7 +1,7 @@
 part,profile,n_components,components_added,n_pass,frac_pass,marginal,per_component
-tier,p1_flow,2,2,1,0.0118,1,0.5
-tier,p2_dpi,3,1,8,0.0941,7,7.0
-tier,p3_historian,7,4,10,0.1176,2,0.5
-tier,p4_host,34,27,43,0.5059,33,1.222
-tier,p5_controller,36,2,85,1.0,42,21.0
-tier,p5b_controller_strict,35,-1,44,0.5176,,
+tier,p1_flow,2,2,1,0.0103,1,0.5
+tier,p2_dpi,3,1,8,0.0825,7,7.0
+tier,p3_historian,7,4,10,0.1031,2,0.5
+tier,p4_host,34,27,43,0.4433,33,1.222
+tier,p5_controller,36,2,85,0.8763,42,21.0
+tier,p5b_controller_strict,35,-1,44,0.4536,,

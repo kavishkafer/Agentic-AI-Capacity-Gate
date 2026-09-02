@@ -72,7 +72,7 @@ violation — it reclassifies it from unknown-id into `fail`.
 
 ## The objection this answers
 
-At `p3_historian` only **10 of 97** ICS techniques are evidenceable at all. A
+At `p3_historian` only **10 of 97** ICS techniques are evidenceable at all (10.3%; 11.8% of the 85 for which requirements exist). A
 reviewer can therefore say:
 
 > Your gate rejects roughly 90% of all possible claims by construction. That is
@@ -85,32 +85,42 @@ That objection is fair and cannot be argued away in prose. It has to be tested.
 ## The test
 
 Run the same items and the same models across all five instrumentation profiles.
-The ontology ceiling — the fraction of the 85 checkable techniques that are
-evidenceable at each tier — is already known from the measurement study:
+The ontology ceiling — the fraction of ICS techniques evidenceable at each
+tier — is already known from the measurement study:
 
-| profile | evidenceable (of 85 checkable) |
-|---|---|
-| `p1_flow` | 1.2% |
-| `p2_dpi` | 9.4% |
-| `p3_historian` | 11.8% |
-| `p4_host` | 50.6% |
-| `p5_controller` | 100% |
-| `p5b_controller_strict` *(variant, Amendment 1)* | 51.8% |
+| profile | of all 97 | of 85 checkable |
+|---|---|---|
+| `p1_flow` | 1.0% | 1.2% |
+| `p2_dpi` | 8.2% | 9.4% |
+| `p3_historian` | 10.3% | 11.8% |
+| `p4_host` | 44.3% | 50.6% |
+| `p5_controller` | 87.6% | 100% |
+| `p5b_controller_strict` *(variant, Amendment 1)* | 45.4% | 51.8% |
+
+**Denominator (supervisor decision, 2 Sep 2026): all 97.** The 12 UNDEFINED
+techniques have no stated detection requirements and are reported explicitly
+alongside every figure. Consequence: the headline column's ceiling is 85/97 =
+87.6%, and no instrumentation spend closes the remaining 12.4%. This is a
+reporting choice only — PASS counts, violation rates and every registered
+prediction are unchanged, since an UNDEFINED technique is never PASS under
+either denominator.
 
 ## Primary prediction
 
 **H1 — `capacity_violation` falls monotonically across `p1..p5` as
 instrumentation improves, and approaches zero at `p5b_controller_strict`.**
 
-At `p5` every checkable technique is evidenceable, so a claim can only violate
-capacity if the model names an `UNDEFINED` technique or an unresolvable ID.
+At `p5` every *checkable* technique is evidenceable — 87.6% of all 97 — so a
+claim can only violate capacity if the model names an `UNDEFINED` technique or
+an unresolvable ID.
 Violation should therefore collapse to roughly the UNDEFINED + unknown-ID rate,
 not to the 40–72% seen at `p3`.
 
 **Per Amendment 1 the floor is judged at p5b, not p5.** p5's 100% is carried by
 one catch-all component, so a collapse to zero there would be cheap. p5b is the
-honest test: 51.8% of checkable techniques evidenceable, and violation should
-still fall substantially below the `p3` rate without reaching zero.
+honest test: 45.4% of all 97 techniques evidenceable (51.8% of the 85
+checkable), and violation should still fall substantially below the `p3` rate
+without reaching zero.
 
 - **If H1 holds**: the gate tracks instrumentation rather than rejecting
   reflexively. The `p3` numbers measure a real property of a real deployment.
