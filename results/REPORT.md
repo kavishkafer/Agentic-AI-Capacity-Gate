@@ -5,6 +5,60 @@ Run 2026-09-01 → 2026-09-02, on the local DGX Spark cluster (ICS ATT&CK v19.2,
 Everything in this folder is derived from `out/experiment_{deepseek,gemma,qwen}.csv`,
 which are the raw per-item scored answers; nothing here has been hand-edited.
 
+> **Update (2026-09-03, Amendment 2 in the main codebase)**: `crossmodel.csv` in
+> this folder has been regenerated against the corrected pipeline — **no new
+> model calls**, same raw per-item CSVs, only the analysis code changed. §7
+> below explains what changed and gives the corrected headline. Read §7 before
+> quoting any `capacity_violation` figure from §2 in the paper — it now
+> conflates a class that the corrected metric shows is not actually
+> grounding-invisible.
+
+## 7. Amendment 2 — decomposed violations, corrected headline (added 2026-09-03)
+
+Review of this experiment found `capacity_violation` (§2) conflates three
+classes with different meanings, only one of which the paper's central claim
+("invisible to referential grounding") actually holds for:
+
+| class | meaning | grounding-invisible? |
+|---|---|---|
+| `fail` | id resolves, ontology consulted, evidence structurally insufficient | **yes — the only class this is true for** |
+| `undefined` | ontology specifies no requirements for the claimed technique | no (neither check applies) |
+| `unknown-id` | claimed id does not resolve at all | **no** — an id-resolution grounding check catches exactly this |
+
+Counting `unknown-id` as "grounding-invisible" (as §2's `missed_by_grounding`
+implicitly did) overstates the finding — for qwen it was 22.5% of all items.
+`src/attack.py` now also resolves ICS v19.2's nine revoked/renumbered
+technique IDs via the bundle's own `revoked-by` relationships before scoring
+(the same confound this report's original §3 investigated by hand with
+`revoked_check.py` — now built into the pipeline itself). Notably, every
+remap target still **fails** capacity at `p3_historian`: resolving a stale id
+never clears a violation, it just reclassifies it from `unknown-id` into
+`fail` — i.e. moves it *into* the grounding-invisible class.
+
+**Corrected headline (instrumented, ids remapped, grounding-invisible only):**
+
+| model | capacity_violation (§2, as originally reported) | grounding-invisible, corrected |
+|---|---|---|
+| deepseek-v4-flash | 7.7% | **7%** |
+| gemma-4-26b-moe | 64.2% | **58%** |
+| qwen3.8-27b | 41.0% | **19%** |
+
+The gap is largest for qwen, where most of the original `capacity_violation`
+figure was id-resolution noise rather than genuine grounding-invisible
+over-claiming — the corrected 19% is still a real, substantial finding, just a
+smaller and more defensible one than §2 stated. deepseek and gemma move only
+slightly, since the id-resolution problem was a much smaller share of their
+violations to begin with. The full per-model decomposition (fail / undefined /
+unknown-id / remapped breakdown, with `n`) is in the updated `crossmodel.csv`
+in this folder and in `stale_id_confound_output.txt` (pre-Amendment-2, kept
+for the record — it identified the same confound before the pipeline fix).
+
+Full detail and the reasoning behind the denominator convention (evidenceable
+fraction reported over all 97 ICS techniques, not just the 85 with defined
+requirements) is in the main repo's git history — see commits `44cee05`
+("Decompose capacity violations; resolve v19-revoked ids; Amendment 2") and
+`a000518` ("Report evidenceable fractions over all 97 techniques").
+
 ## 1. Methodology
 
 Each item is a real ATT&CK ICS procedure example (a documented technique used

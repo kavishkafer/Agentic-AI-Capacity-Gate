@@ -1,0 +1,543 @@
+item,actor,gold_id,gold_name,gold_checkable,name_leak,claimed_id,attribution_correct,model_says_provable,n_cited,arm4_grounding_pass,arm5_capacity_pass,arm5_outcome,capacity_violation,missed_by_grounding,missing,condition,model
+P001,FrostyGoop Incident,T0836,Modify Parameter,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P002,FrostyGoop Incident,T1693.001,System Firmware,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P003,FrostyGoop Incident,T0829,Loss of View,False,False,T0858,False,True,2,False,False,fail,True,False,Application Log Content,bare,deepseek-v4-flash
+P004,FrostyGoop Incident,T0826,Loss of Availability,False,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P005,Triton Safety Instrumented System Attack,T0830,Adversary-in-the-Middle,True,False,T0856,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P006,Triton Safety Instrumented System Attack,T0807,Command-Line Interface,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P007,Triton Safety Instrumented System Attack,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P008,Triton Safety Instrumented System Attack,T0828,Loss of Productivity and Revenue,False,False,T0809,False,True,3,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P009,Triton Safety Instrumented System Attack,T0843.003,Program Append,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P010,Triton Safety Instrumented System Attack,T0872,Indicator Removal on Host,True,False,T0831,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P011,Triton Safety Instrumented System Attack,T0859,Valid Accounts,True,False,T0859,True,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P012,Triton Safety Instrumented System Attack,T0867,Lateral Tool Transfer,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P013,Triton Safety Instrumented System Attack,T0886,Remote Services,True,True,T0869,False,True,3,False,True,pass,False,False,,bare,deepseek-v4-flash
+P014,2015 Ukraine Electric Power Attack,T0822,External Remote Services,True,False,T0859,False,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P015,2015 Ukraine Electric Power Attack,T0884,Connection Proxy,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P016,2015 Ukraine Electric Power Attack,T0859,Valid Accounts,True,True,T0859,True,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P017,2015 Ukraine Electric Power Attack,T0886,Remote Services,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P018,2015 Ukraine Electric Power Attack,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P019,2015 Ukraine Electric Power Attack,T0831,Manipulation of Control,False,False,T0831,True,True,3,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P020,2015 Ukraine Electric Power Attack,T1693.001,System Firmware,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P021,2015 Ukraine Electric Power Attack,T0885,Commonly Used Port,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P022,2015 Ukraine Electric Power Attack,T1695.001,Serial COM,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P023,2015 Ukraine Electric Power Attack,T0814,Denial of Service,True,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P024,2015 Ukraine Electric Power Attack,T0867,Lateral Tool Transfer,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P025,2015 Ukraine Electric Power Attack,T0816,Device Restart/Shutdown,True,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P026,2015 Ukraine Electric Power Attack,T0823,Graphical User Interface,True,False,T0831,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P027,2015 Ukraine Electric Power Attack,T0813,Denial of Control,False,False,T0858,False,True,2,False,False,fail,True,False,Application Log Content,bare,deepseek-v4-flash
+P028,2015 Ukraine Electric Power Attack,T0846,Remote System Discovery,True,True,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P029,2015 Ukraine Electric Power Attack,T1691.001,Command Message,True,True,T0856,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P030,2015 Ukraine Electric Power Attack,T0827,Loss of Control,False,False,T0826,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P031,2015 Ukraine Electric Power Attack,T1691.002,Reporting Message,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P032,2015 Ukraine Electric Power Attack,T0826,Loss of Availability,False,False,T0831,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P033,Maroochy Water Breach,T1692.002,Reporting Message,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P034,Maroochy Water Breach,T0822,External Remote Services,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P035,Maroochy Water Breach,T0838,Modify Alarm Settings,True,False,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P036,Maroochy Water Breach,T0864,Transient Cyber Asset,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P037,Maroochy Water Breach,T0879,Damage to Property,False,False,T0831,False,True,3,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P038,Maroochy Water Breach,T0836,Modify Parameter,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P039,Maroochy Water Breach,T0813,Denial of Control,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P040,Maroochy Water Breach,T0860,Wireless Compromise,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P041,Maroochy Water Breach,T0848,Rogue Master,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P042,Maroochy Water Breach,T0878,Alarm Suppression,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P043,Maroochy Water Breach,T0815,Denial of View,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P044,Unitronics Defacement Campaign,T0826,Loss of Availability,False,False,T0826,True,True,0,True,False,undefined,True,True,,bare,deepseek-v4-flash
+P045,Unitronics Defacement Campaign,T0814,Denial of Service,True,False,T0826,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P046,Unitronics Defacement Campaign,T0829,Loss of View,False,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P047,Unitronics Defacement Campaign,T0883,Internet Accessible Device,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P048,Unitronics Defacement Campaign,T1694.001,Default Credentials,True,True,T0859,False,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P049,Unitronics Defacement Campaign,T0828,Loss of Productivity and Revenue,False,False,T0826,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P050,2025 Poland Wiper Attacks,T0892,Change Credential,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P051,2025 Poland Wiper Attacks,T0829,Loss of View,False,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P052,2025 Poland Wiper Attacks,T0816,Device Restart/Shutdown,True,False,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P053,2025 Poland Wiper Attacks,T0846.001,Port Scan,True,True,T0846,False,True,2,False,False,fail,True,False,File Access; Process Creation,bare,deepseek-v4-flash
+P054,2025 Poland Wiper Attacks,T0840,Network Connection Enumeration,True,False,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P055,2025 Poland Wiper Attacks,T0885,Commonly Used Port,True,False,T0856,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P056,2025 Poland Wiper Attacks,T0852,Screen Capture,True,True,T0822,False,True,2,False,False,fail,True,False,Application Log Content; Logon Session Metadata,bare,deepseek-v4-flash
+P057,2025 Poland Wiper Attacks,T0809,Data Destruction,True,False,T0809,True,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P058,2025 Poland Wiper Attacks,T1693.001,System Firmware,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P059,2025 Poland Wiper Attacks,T0807,Command-Line Interface,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P060,2025 Poland Wiper Attacks,T0859,Valid Accounts,True,True,T0859,True,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P061,2025 Poland Wiper Attacks,T1694.001,Default Credentials,True,True,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P062,2025 Poland Wiper Attacks,T0827,Loss of Control,False,True,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P063,2025 Poland Wiper Attacks,T0823,Graphical User Interface,True,True,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P064,2025 Poland Wiper Attacks,T0846.002,Broadcast Discovery,True,False,T0859,False,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P065,2025 Poland Wiper Attacks,T0846,Remote System Discovery,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P066,2025 Poland Wiper Attacks,T0822,External Remote Services,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P067,2025 Poland Wiper Attacks,T0886,Remote Services,True,True,T0859,False,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P068,2025 Poland Wiper Attacks,T0888,Remote System Information Discovery,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P069,2016 Ukraine Electric Power Attack,T0867,Lateral Tool Transfer,True,True,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P070,2016 Ukraine Electric Power Attack,T0886,Remote Services,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P071,2016 Ukraine Electric Power Attack,T0853,Scripting,True,False,T1059,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P072,2016 Ukraine Electric Power Attack,T0859,Valid Accounts,True,True,T0859,True,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P073,2016 Ukraine Electric Power Attack,T0807,Command-Line Interface,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P074,2016 Ukraine Electric Power Attack,T0849,Masquerading,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P075,2022 Ukraine Electric Power Attack,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P076,2022 Ukraine Electric Power Attack,T0894,System Binary Proxy Execution,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P077,2022 Ukraine Electric Power Attack,T0895,Autorun Image,True,True,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P078,2022 Ukraine Electric Power Attack,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P079,ALLANITE,T0859,Valid Accounts,True,False,T1078,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P080,ALLANITE,T0852,Screen Capture,True,False,T0856,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P081,ALLANITE,T0865,Spearphishing Attachment,True,False,T0865,True,True,2,False,False,fail,True,False,Application Log Content; File Creation; Process Creation,bare,deepseek-v4-flash
+P082,ALLANITE,T0817,Drive-by Compromise,True,False,T1189,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P083,Dragonfly,T0817,Drive-by Compromise,True,False,T1189,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P084,Dragonfly,T0862,Supply Chain Compromise,True,False,T1195,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P085,Sandworm Team,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P086,Sandworm Team,T0819,Exploit Public-Facing Application,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P087,Sandworm Team,T0884,Connection Proxy,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P088,OilRig,T0865,Spearphishing Attachment,True,True,T1193,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P089,OilRig,T0853,Scripting,True,False,T1193,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P090,OilRig,T0869,Standard Application Layer Protocol,True,False,T0869,True,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P091,OilRig,T0859,Valid Accounts,True,False,T1078,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P092,OilRig,T0817,Drive-by Compromise,True,False,T1189,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P093,TEMP.Veles,T0862,Supply Chain Compromise,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P094,TEMP.Veles,T0817,Drive-by Compromise,True,False,T1189,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P095,Lazarus Group,T0865,Spearphishing Attachment,True,False,T1566,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P096,APT33,T0852,Screen Capture,True,True,T1113,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P097,APT33,T0865,Spearphishing Attachment,True,False,T1193,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P098,APT33,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P099,EKANS,T0881,Service Stop,True,False,T0809,False,False,0,True,False,fail,False,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P100,EKANS,T0840,Network Connection Enumeration,True,False,T0869,False,True,1,False,True,pass,False,False,,bare,deepseek-v4-flash
+P101,EKANS,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P102,EKANS,T0849,Masquerading,True,False,T1036,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P103,Backdoor.Oldrea,T0888,Remote System Information Discovery,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P104,Backdoor.Oldrea,T0846,Remote System Discovery,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P105,Backdoor.Oldrea,T0863,User Execution,True,True,T0865,False,True,2,False,False,fail,True,False,Application Log Content; File Creation; Process Creation,bare,deepseek-v4-flash
+P106,Backdoor.Oldrea,T0862,Supply Chain Compromise,True,False,T1195,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P107,Backdoor.Oldrea,T0802,Automated Collection,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P108,Backdoor.Oldrea,T0861,Point & Tag Identification,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P109,Backdoor.Oldrea,T0814,Denial of Service,True,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P110,Backdoor.Oldrea,T0865,Spearphishing Attachment,True,False,T1195,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P111,Stuxnet,T0849,Masquerading,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P112,Stuxnet,T0888,Remote System Information Discovery,True,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P113,Stuxnet,T1694.002,Hardcoded Credentials,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P114,Stuxnet,T0877,I/O Image,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P115,Stuxnet,T0801,Monitor Process State,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P116,Stuxnet,T0867,Lateral Tool Transfer,True,False,T0890,False,False,0,True,False,fail,False,False,Application Log Content,bare,deepseek-v4-flash
+P117,Stuxnet,T0834,Native API,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P118,Stuxnet,T0836,Modify Parameter,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P119,Stuxnet,T0874,Hooking,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P120,Stuxnet,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P121,Stuxnet,T0843,Program Download,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P122,Stuxnet,T0847,Replication Through Removable Media,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P123,Stuxnet,T0863,User Execution,True,False,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P124,Stuxnet,T0873.001,Siemens Project File Format,True,False,T0871,False,False,0,True,False,fail,False,False,OS API Execution,bare,deepseek-v4-flash
+P125,Stuxnet,T0869,Standard Application Layer Protocol,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P126,Stuxnet,T0885,Commonly Used Port,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P127,Stuxnet,T0866,Exploitation of Remote Services,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P128,Stuxnet,T0831,Manipulation of Control,False,False,T0831,True,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P129,Stuxnet,T0889,Modify Program,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P130,Stuxnet,T0821,Modify Controller Tasking,True,False,T0889,False,False,0,True,False,fail,False,False,Application Log Content; Software,bare,deepseek-v4-flash
+P131,Stuxnet,T0832,Manipulation of View,False,True,T0855,False,True,3,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P132,Stuxnet,T0886,Remote Services,True,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P133,Stuxnet,T0835,Manipulate I/O Image,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P134,Stuxnet,T0851,Rootkit,True,True,T0854,False,True,3,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P135,Stuxnet,T0842,Network Sniffing,True,False,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P136,Bad Rabbit,T0866,Exploitation of Remote Services,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P137,Bad Rabbit,T0817,Drive-by Compromise,True,True,T1189,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P138,Bad Rabbit,T0828,Loss of Productivity and Revenue,False,False,T1486,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P139,Bad Rabbit,T0863,User Execution,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P140,Bad Rabbit,T0867,Lateral Tool Transfer,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P141,PLC-Blaster,T0821,Modify Controller Tasking,True,False,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P142,PLC-Blaster,T0834,Native API,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P143,PLC-Blaster,T0843,Program Download,True,False,T0853,False,True,2,False,False,fail,True,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,bare,deepseek-v4-flash
+P144,PLC-Blaster,T0814,Denial of Service,True,False,T0809,False,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P145,PLC-Blaster,T0835,Manipulate I/O Image,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P146,PLC-Blaster,T0889,Modify Program,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P147,PLC-Blaster,T0858,Change Operating Mode,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P148,PLC-Blaster,T0846.001,Port Scan,True,True,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P149,BlackEnergy,T0869,Standard Application Layer Protocol,True,False,T0869,True,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P150,BlackEnergy,T0865,Spearphishing Attachment,True,True,T1193,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P151,BlackEnergy,T0859,Valid Accounts,True,True,T0859,True,True,2,False,False,fail,True,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P152,NotPetya,T0867,Lateral Tool Transfer,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P153,NotPetya,T0866,Exploitation of Remote Services,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P154,NotPetya,T0828,Loss of Productivity and Revenue,False,False,T0826,False,True,0,True,False,undefined,True,True,,bare,deepseek-v4-flash
+P155,Conficker,T0828,Loss of Productivity and Revenue,False,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P156,Conficker,T0847,Replication Through Removable Media,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P157,Conficker,T0826,Loss of Availability,False,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P158,LockerGoga,T0828,Loss of Productivity and Revenue,False,False,T0806,False,True,1,False,False,fail,True,False,Application Log Content,bare,deepseek-v4-flash
+P159,LockerGoga,T1695.002,Ethernet,True,False,T0809,False,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P160,LockerGoga,T0829,Loss of View,False,True,T0826,False,True,0,True,False,undefined,True,True,,bare,deepseek-v4-flash
+P161,LockerGoga,T1695.003,Wi-Fi,True,False,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P162,LockerGoga,T0827,Loss of Control,False,True,T0826,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P163,VPNFilter,T0830,Adversary-in-the-Middle,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P164,VPNFilter,T0842,Network Sniffing,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P165,Industroyer2,T0806,Brute Force I/O,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P166,Industroyer2,T0881,Service Stop,True,False,,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P167,Industroyer2,T0836,Modify Parameter,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P168,Industroyer2,T0888,Remote System Information Discovery,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P169,Industroyer2,T0802,Automated Collection,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P170,Industroyer2,T0801,Monitor Process State,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P171,WannaCry,T0866,Exploitation of Remote Services,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P172,WannaCry,T0867,Lateral Tool Transfer,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P173,Triton,T0834,Native API,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P174,Triton,T0843,Program Download,True,True,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P175,Triton,T0849,Masquerading,True,False,T0854,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P176,Triton,T0846.002,Broadcast Discovery,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P177,Triton,T0872,Indicator Removal on Host,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P178,Triton,T0890,Exploitation for Privilege Escalation,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P179,Triton,T0821,Modify Controller Tasking,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P180,Triton,T0853,Scripting,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P181,Triton,T0858,Change Operating Mode,True,False,,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P182,Triton,T0885,Commonly Used Port,True,False,T0882,False,True,1,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P183,Triton,T0868,Detect Operating Mode,True,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P184,Triton,T0845,Program Upload,True,True,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P185,Triton,T0874,Hooking,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P186,Triton,T0871,Execution through API,True,False,T0831,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P187,Triton,T0880,Loss of Safety,False,False,T0831,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P188,Triton,T0820,Exploitation for Evasion,True,False,T0826,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P189,Triton,T0869,Standard Application Layer Protocol,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P190,Triton,T1693.001,System Firmware,True,True,T0831,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P191,Fuxnet,T0883,Internet Accessible Device,True,True,T0869,False,True,1,False,True,pass,False,False,,bare,deepseek-v4-flash
+P192,Fuxnet,T0822,External Remote Services,True,True,T0866,False,True,1,False,False,fail,True,False,Application Log Content,bare,deepseek-v4-flash
+P193,Fuxnet,T0806,Brute Force I/O,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P194,Fuxnet,T0829,Loss of View,False,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P195,Fuxnet,T0814,Denial of Service,True,False,T0858,False,True,0,True,False,fail,True,True,Application Log Content,bare,deepseek-v4-flash
+P196,Fuxnet,T0809,Data Destruction,True,False,T0831,False,True,1,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P197,Ryuk,T0828,Loss of Productivity and Revenue,False,False,T0826,False,True,0,True,False,undefined,True,True,,bare,deepseek-v4-flash
+P198,REvil,T0863,User Execution,True,False,T1204,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P199,REvil,T0881,Service Stop,True,False,T0889,False,False,0,True,False,fail,False,False,Application Log Content; Software,bare,deepseek-v4-flash
+P200,REvil,T0849,Masquerading,True,False,T1055,False,True,3,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P201,REvil,T0828,Loss of Productivity and Revenue,False,False,T1486,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P202,REvil,T0869,Standard Application Layer Protocol,True,False,T0869,True,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P203,REvil,T0886,Remote Services,True,True,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P204,REvil,T0853,Scripting,True,False,T1059,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P205,FrostyGoop,T0836,Modify Parameter,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P206,FrostyGoop,T0801,Monitor Process State,True,False,T0882,False,True,1,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P207,FrostyGoop,T0869,Standard Application Layer Protocol,True,False,T0855,False,True,1,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P208,FrostyGoop,T0885,Commonly Used Port,True,False,T0882,False,True,1,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P209,FrostyGoop,T0807,Command-Line Interface,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P210,INCONTROLLER,T0846.003,Multicast Discovery,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P211,INCONTROLLER,T0861,Point & Tag Identification,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P212,INCONTROLLER,T0869,Standard Application Layer Protocol,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P213,INCONTROLLER,T0886,Remote Services,True,True,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P214,INCONTROLLER,T0884,Connection Proxy,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P215,INCONTROLLER,T0836,Modify Parameter,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P216,INCONTROLLER,T0858,Change Operating Mode,True,True,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P217,INCONTROLLER,T0843.001,Download All,True,True,T0831,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P218,INCONTROLLER,T0859,Valid Accounts,True,False,T0815,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P219,INCONTROLLER,T0846,Remote System Discovery,True,False,T0882,False,True,1,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P220,INCONTROLLER,T0843,Program Download,True,True,T0843,True,True,2,False,False,fail,True,False,Application Log Content,bare,deepseek-v4-flash
+P221,INCONTROLLER,T0888,Remote System Information Discovery,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P222,INCONTROLLER,T0867,Lateral Tool Transfer,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P223,INCONTROLLER,T0846.001,Port Scan,True,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P224,INCONTROLLER,T0845,Program Upload,True,True,T0842,False,True,2,False,False,fail,True,False,Command Execution; Process Creation,bare,deepseek-v4-flash
+P225,INCONTROLLER,T0890,Exploitation for Privilege Escalation,True,False,T1543,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P226,INCONTROLLER,T0842,Network Sniffing,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P227,INCONTROLLER,T0809,Data Destruction,True,False,T0857,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P228,INCONTROLLER,T1694.002,Hardcoded Credentials,True,True,T0854,False,True,1,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P229,KillDisk,T0829,Loss of View,False,False,T0809,False,False,0,True,False,fail,False,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P230,KillDisk,T0872,Indicator Removal on Host,True,False,T0809,False,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P231,KillDisk,T0809,Data Destruction,True,False,T0853,False,False,0,True,False,fail,False,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,bare,deepseek-v4-flash
+P232,KillDisk,T0881,Service Stop,True,False,T0889,False,True,2,False,False,fail,True,False,Application Log Content; Software,bare,deepseek-v4-flash
+P233,Industroyer,T0846,Remote System Discovery,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P234,Industroyer,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P235,Industroyer,T0884,Connection Proxy,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P236,Industroyer,T0814,Denial of Service,True,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P237,Industroyer,T1691.002,Reporting Message,True,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P238,Industroyer,T0888,Remote System Information Discovery,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P239,Industroyer,T0881,Service Stop,True,True,T0889,False,False,0,True,False,fail,False,False,Application Log Content; Software,bare,deepseek-v4-flash
+P240,Industroyer,T1691.001,Command Message,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P241,Industroyer,T0831,Manipulation of Control,False,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P242,Industroyer,T1695.001,Serial COM,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P243,Industroyer,T0801,Monitor Process State,True,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P244,Industroyer,T0800,Activate Firmware Update Mode,True,False,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P245,Industroyer,T0840,Network Connection Enumeration,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,bare,deepseek-v4-flash
+P246,Industroyer,T0816,Device Restart/Shutdown,True,True,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P247,Industroyer,T0806,Brute Force I/O,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P248,Industroyer,T0813,Denial of Control,False,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P249,Industroyer,T0829,Loss of View,False,False,T0809,False,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P250,Industroyer,T0815,Denial of View,False,True,T0882,False,False,0,True,False,undefined,False,False,,bare,deepseek-v4-flash
+P251,Industroyer,T0809,Data Destruction,True,True,T0809,True,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P252,Industroyer,T0827,Loss of Control,False,False,T0809,False,True,2,False,False,fail,True,False,Command Execution; File Deletion; File Modification; Process Creation,bare,deepseek-v4-flash
+P253,Industroyer,T0846.001,Port Scan,True,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P254,Industroyer,T0802,Automated Collection,True,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P255,Industroyer,T0832,Manipulation of View,False,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P256,Industroyer,T0837,Loss of Protection,False,False,T0882,False,True,2,False,False,undefined,True,False,,bare,deepseek-v4-flash
+P257,Duqu,T0893,Data from Local System,True,True,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P258,ACAD/Medre.A,T0882,Theft of Operational Information,False,False,T0812,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P259,Flame,T0893,Data from Local System,True,False,T0812,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P260,ACAD/Medre.A,T0893,Data from Local System,True,False,T0812,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P261,INCONTROLLER,T1692.001,Command Message,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P262,Maroochy Water Breach,T1692.001,Command Message,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P263,Duqu,T0811,Data from Information Repositories,True,True,T0812,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P264,REvil,T0882,Theft of Operational Information,False,False,T0869,False,True,2,False,True,pass,False,False,,bare,deepseek-v4-flash
+P265,Triton Safety Instrumented System Attack,T1692.001,Command Message,True,True,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P266,Duqu,T0882,Theft of Operational Information,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P267,Flame,T0882,Theft of Operational Information,False,False,T0869,False,False,0,True,True,pass,False,False,,bare,deepseek-v4-flash
+P268,Industroyer2,T1692.001,Command Message,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P269,Industroyer,T1692.001,Command Message,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P270,2022 Ukraine Electric Power Attack,T1692.001,Command Message,True,False,T0855,False,True,2,False,False,unknown-technique,True,False,,bare,deepseek-v4-flash
+P271,2025 Poland Wiper Attacks,T0882,Theft of Operational Information,False,False,T0803,False,False,0,True,False,unknown-technique,False,False,,bare,deepseek-v4-flash
+P001,FrostyGoop Incident,T0836,Modify Parameter,True,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P002,FrostyGoop Incident,T1693.001,System Firmware,True,True,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P003,FrostyGoop Incident,T0829,Loss of View,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P004,FrostyGoop Incident,T0826,Loss of Availability,False,False,T0831,False,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P005,Triton Safety Instrumented System Attack,T0830,Adversary-in-the-Middle,True,False,T0856,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P006,Triton Safety Instrumented System Attack,T0807,Command-Line Interface,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P007,Triton Safety Instrumented System Attack,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P008,Triton Safety Instrumented System Attack,T0828,Loss of Productivity and Revenue,False,False,T0809,False,True,3,True,False,fail,True,True,Command Execution; File Deletion; File Modification; Process Creation,instrumented,deepseek-v4-flash
+P009,Triton Safety Instrumented System Attack,T0843.003,Program Append,True,True,T0831,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P010,Triton Safety Instrumented System Attack,T0872,Indicator Removal on Host,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P011,Triton Safety Instrumented System Attack,T0859,Valid Accounts,True,False,T0859,True,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P012,Triton Safety Instrumented System Attack,T0867,Lateral Tool Transfer,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P013,Triton Safety Instrumented System Attack,T0886,Remote Services,True,True,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P014,2015 Ukraine Electric Power Attack,T0822,External Remote Services,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P015,2015 Ukraine Electric Power Attack,T0884,Connection Proxy,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P016,2015 Ukraine Electric Power Attack,T0859,Valid Accounts,True,True,T0859,True,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P017,2015 Ukraine Electric Power Attack,T0886,Remote Services,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P018,2015 Ukraine Electric Power Attack,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P019,2015 Ukraine Electric Power Attack,T0831,Manipulation of Control,False,False,T0831,True,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P020,2015 Ukraine Electric Power Attack,T1693.001,System Firmware,True,True,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P021,2015 Ukraine Electric Power Attack,T0885,Commonly Used Port,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P022,2015 Ukraine Electric Power Attack,T1695.001,Serial COM,True,True,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P023,2015 Ukraine Electric Power Attack,T0814,Denial of Service,True,True,T0857,False,False,1,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P024,2015 Ukraine Electric Power Attack,T0867,Lateral Tool Transfer,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P025,2015 Ukraine Electric Power Attack,T0816,Device Restart/Shutdown,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P026,2015 Ukraine Electric Power Attack,T0823,Graphical User Interface,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P027,2015 Ukraine Electric Power Attack,T0813,Denial of Control,False,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P028,2015 Ukraine Electric Power Attack,T0846,Remote System Discovery,True,True,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P029,2015 Ukraine Electric Power Attack,T1691.001,Command Message,True,True,T0857,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P030,2015 Ukraine Electric Power Attack,T0827,Loss of Control,False,False,T0826,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P031,2015 Ukraine Electric Power Attack,T1691.002,Reporting Message,True,True,T0857,False,False,1,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P032,2015 Ukraine Electric Power Attack,T0826,Loss of Availability,False,False,T0826,True,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P033,Maroochy Water Breach,T1692.002,Reporting Message,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P034,Maroochy Water Breach,T0822,External Remote Services,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P035,Maroochy Water Breach,T0838,Modify Alarm Settings,True,False,T0803,False,False,1,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P036,Maroochy Water Breach,T0864,Transient Cyber Asset,True,False,T0857,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P037,Maroochy Water Breach,T0879,Damage to Property,False,False,T0831,False,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P038,Maroochy Water Breach,T0836,Modify Parameter,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P039,Maroochy Water Breach,T0813,Denial of Control,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P040,Maroochy Water Breach,T0860,Wireless Compromise,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P041,Maroochy Water Breach,T0848,Rogue Master,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P042,Maroochy Water Breach,T0878,Alarm Suppression,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P043,Maroochy Water Breach,T0815,Denial of View,False,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P044,Unitronics Defacement Campaign,T0826,Loss of Availability,False,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P045,Unitronics Defacement Campaign,T0814,Denial of Service,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P046,Unitronics Defacement Campaign,T0829,Loss of View,False,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P047,Unitronics Defacement Campaign,T0883,Internet Accessible Device,True,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P048,Unitronics Defacement Campaign,T1694.001,Default Credentials,True,True,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P049,Unitronics Defacement Campaign,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P050,2025 Poland Wiper Attacks,T0892,Change Credential,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P051,2025 Poland Wiper Attacks,T0829,Loss of View,False,True,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P052,2025 Poland Wiper Attacks,T0816,Device Restart/Shutdown,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P053,2025 Poland Wiper Attacks,T0846.001,Port Scan,True,True,T0846,False,True,3,True,False,fail,True,True,File Access; Process Creation,instrumented,deepseek-v4-flash
+P054,2025 Poland Wiper Attacks,T0840,Network Connection Enumeration,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P055,2025 Poland Wiper Attacks,T0885,Commonly Used Port,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P056,2025 Poland Wiper Attacks,T0852,Screen Capture,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P057,2025 Poland Wiper Attacks,T0809,Data Destruction,True,False,T0831,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P058,2025 Poland Wiper Attacks,T1693.001,System Firmware,True,True,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P059,2025 Poland Wiper Attacks,T0807,Command-Line Interface,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P060,2025 Poland Wiper Attacks,T0859,Valid Accounts,True,True,T0859,True,False,3,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P061,2025 Poland Wiper Attacks,T1694.001,Default Credentials,True,True,T0854,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P062,2025 Poland Wiper Attacks,T0827,Loss of Control,False,True,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P063,2025 Poland Wiper Attacks,T0823,Graphical User Interface,True,True,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P064,2025 Poland Wiper Attacks,T0846.002,Broadcast Discovery,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P065,2025 Poland Wiper Attacks,T0846,Remote System Discovery,True,True,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P066,2025 Poland Wiper Attacks,T0822,External Remote Services,True,False,T0859,False,False,3,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P067,2025 Poland Wiper Attacks,T0886,Remote Services,True,True,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P068,2025 Poland Wiper Attacks,T0888,Remote System Information Discovery,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P069,2016 Ukraine Electric Power Attack,T0867,Lateral Tool Transfer,True,True,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P070,2016 Ukraine Electric Power Attack,T0886,Remote Services,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P071,2016 Ukraine Electric Power Attack,T0853,Scripting,True,False,T1059,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P072,2016 Ukraine Electric Power Attack,T0859,Valid Accounts,True,True,T0859,True,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P073,2016 Ukraine Electric Power Attack,T0807,Command-Line Interface,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P074,2016 Ukraine Electric Power Attack,T0849,Masquerading,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P075,2022 Ukraine Electric Power Attack,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P076,2022 Ukraine Electric Power Attack,T0894,System Binary Proxy Execution,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P077,2022 Ukraine Electric Power Attack,T0895,Autorun Image,True,True,T0804,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P078,2022 Ukraine Electric Power Attack,T0807,Command-Line Interface,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P079,ALLANITE,T0859,Valid Accounts,True,False,T1078,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P080,ALLANITE,T0852,Screen Capture,True,False,T0852,True,False,0,True,False,fail,False,False,Command Execution; OS API Execution,instrumented,deepseek-v4-flash
+P081,ALLANITE,T0865,Spearphishing Attachment,True,False,T0865,True,False,0,True,False,fail,False,False,Application Log Content; File Creation; Process Creation,instrumented,deepseek-v4-flash
+P082,ALLANITE,T0817,Drive-by Compromise,True,False,T1189,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P083,Dragonfly,T0817,Drive-by Compromise,True,False,T1189,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P084,Dragonfly,T0862,Supply Chain Compromise,True,False,T1195,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P085,Sandworm Team,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P086,Sandworm Team,T0819,Exploit Public-Facing Application,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P087,Sandworm Team,T0884,Connection Proxy,True,False,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P088,OilRig,T0865,Spearphishing Attachment,True,True,T1193,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P089,OilRig,T0853,Scripting,True,False,T1193,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P090,OilRig,T0869,Standard Application Layer Protocol,True,False,T0869,True,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P091,OilRig,T0859,Valid Accounts,True,False,T0859,True,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P092,OilRig,T0817,Drive-by Compromise,True,False,T1189,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P093,TEMP.Veles,T0862,Supply Chain Compromise,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P094,TEMP.Veles,T0817,Drive-by Compromise,True,False,T1189,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P095,Lazarus Group,T0865,Spearphishing Attachment,True,False,T1566,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P096,APT33,T0852,Screen Capture,True,True,T0852,True,False,0,True,False,fail,False,False,Command Execution; OS API Execution,instrumented,deepseek-v4-flash
+P097,APT33,T0865,Spearphishing Attachment,True,False,T1193,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P098,APT33,T0853,Scripting,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P099,EKANS,T0881,Service Stop,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P100,EKANS,T0840,Network Connection Enumeration,True,False,T0882,False,False,1,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P101,EKANS,T0828,Loss of Productivity and Revenue,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P102,EKANS,T0849,Masquerading,True,False,T1036,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P103,Backdoor.Oldrea,T0888,Remote System Information Discovery,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P104,Backdoor.Oldrea,T0846,Remote System Discovery,True,False,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P105,Backdoor.Oldrea,T0863,User Execution,True,True,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P106,Backdoor.Oldrea,T0862,Supply Chain Compromise,True,False,T1195,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P107,Backdoor.Oldrea,T0802,Automated Collection,True,False,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P108,Backdoor.Oldrea,T0861,Point & Tag Identification,True,False,T0869,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P109,Backdoor.Oldrea,T0814,Denial of Service,True,True,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P110,Backdoor.Oldrea,T0865,Spearphishing Attachment,True,False,T1195,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P111,Stuxnet,T0849,Masquerading,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P112,Stuxnet,T0888,Remote System Information Discovery,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P113,Stuxnet,T1694.002,Hardcoded Credentials,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P114,Stuxnet,T0877,I/O Image,True,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P115,Stuxnet,T0801,Monitor Process State,True,False,T0882,False,False,1,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P116,Stuxnet,T0867,Lateral Tool Transfer,True,False,T0885,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P117,Stuxnet,T0834,Native API,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P118,Stuxnet,T0836,Modify Parameter,True,False,T0855,False,True,2,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P119,Stuxnet,T0874,Hooking,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P120,Stuxnet,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P121,Stuxnet,T0843,Program Download,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P122,Stuxnet,T0847,Replication Through Removable Media,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P123,Stuxnet,T0863,User Execution,True,False,T0803,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P124,Stuxnet,T0873.001,Siemens Project File Format,True,False,T0895,False,False,0,True,False,fail,False,False,Drive Creation; Process Creation,instrumented,deepseek-v4-flash
+P125,Stuxnet,T0869,Standard Application Layer Protocol,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P126,Stuxnet,T0885,Commonly Used Port,True,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P127,Stuxnet,T0866,Exploitation of Remote Services,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P128,Stuxnet,T0831,Manipulation of Control,False,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P129,Stuxnet,T0889,Modify Program,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P130,Stuxnet,T0821,Modify Controller Tasking,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P131,Stuxnet,T0832,Manipulation of View,False,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P132,Stuxnet,T0886,Remote Services,True,True,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P133,Stuxnet,T0835,Manipulate I/O Image,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P134,Stuxnet,T0851,Rootkit,True,True,T0881,False,False,0,True,False,fail,False,False,Command Execution; File Modification; OS API Execution; Process Creation; Process Termination; Service Metadata; Windows Registry Key Modification,instrumented,deepseek-v4-flash
+P135,Stuxnet,T0842,Network Sniffing,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P136,Bad Rabbit,T0866,Exploitation of Remote Services,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P137,Bad Rabbit,T0817,Drive-by Compromise,True,True,T1189,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P138,Bad Rabbit,T0828,Loss of Productivity and Revenue,False,False,T1486,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P139,Bad Rabbit,T0863,User Execution,True,False,T0853,False,False,0,True,False,fail,False,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,instrumented,deepseek-v4-flash
+P140,Bad Rabbit,T0867,Lateral Tool Transfer,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P141,PLC-Blaster,T0821,Modify Controller Tasking,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P142,PLC-Blaster,T0834,Native API,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P143,PLC-Blaster,T0843,Program Download,True,False,T0853,False,False,2,True,False,fail,False,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,instrumented,deepseek-v4-flash
+P144,PLC-Blaster,T0814,Denial of Service,True,False,T0806,False,False,2,True,False,fail,False,False,Application Log Content,instrumented,deepseek-v4-flash
+P145,PLC-Blaster,T0835,Manipulate I/O Image,True,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P146,PLC-Blaster,T0889,Modify Program,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P147,PLC-Blaster,T0858,Change Operating Mode,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P148,PLC-Blaster,T0846.001,Port Scan,True,True,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P149,BlackEnergy,T0869,Standard Application Layer Protocol,True,False,T0869,True,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P150,BlackEnergy,T0865,Spearphishing Attachment,True,True,T1193,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P151,BlackEnergy,T0859,Valid Accounts,True,True,T0859,True,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P152,NotPetya,T0867,Lateral Tool Transfer,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P153,NotPetya,T0866,Exploitation of Remote Services,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P154,NotPetya,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P155,Conficker,T0828,Loss of Productivity and Revenue,False,False,T0885,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P156,Conficker,T0847,Replication Through Removable Media,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P157,Conficker,T0826,Loss of Availability,False,False,T0885,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P158,LockerGoga,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P159,LockerGoga,T1695.002,Ethernet,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P160,LockerGoga,T0829,Loss of View,False,True,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P161,LockerGoga,T1695.003,Wi-Fi,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P162,LockerGoga,T0827,Loss of Control,False,True,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P163,VPNFilter,T0830,Adversary-in-the-Middle,True,False,T0854,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P164,VPNFilter,T0842,Network Sniffing,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P165,Industroyer2,T0806,Brute Force I/O,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P166,Industroyer2,T0881,Service Stop,True,False,T0889,False,False,0,True,False,fail,False,False,Application Log Content; Software,instrumented,deepseek-v4-flash
+P167,Industroyer2,T0836,Modify Parameter,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P168,Industroyer2,T0888,Remote System Information Discovery,True,False,T0888,True,False,2,True,False,fail,False,False,File Access; Process Creation,instrumented,deepseek-v4-flash
+P169,Industroyer2,T0802,Automated Collection,True,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P170,Industroyer2,T0801,Monitor Process State,True,False,T0882,False,True,2,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P171,WannaCry,T0866,Exploitation of Remote Services,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P172,WannaCry,T0867,Lateral Tool Transfer,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P173,Triton,T0834,Native API,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P174,Triton,T0843,Program Download,True,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P175,Triton,T0849,Masquerading,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P176,Triton,T0846.002,Broadcast Discovery,True,False,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P177,Triton,T0872,Indicator Removal on Host,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P178,Triton,T0890,Exploitation for Privilege Escalation,True,False,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P179,Triton,T0821,Modify Controller Tasking,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P180,Triton,T0853,Scripting,True,False,T0857,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P181,Triton,T0858,Change Operating Mode,True,False,T0854,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P182,Triton,T0885,Commonly Used Port,True,False,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P183,Triton,T0868,Detect Operating Mode,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P184,Triton,T0845,Program Upload,True,True,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P185,Triton,T0874,Hooking,True,False,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P186,Triton,T0871,Execution through API,True,False,T0854,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P187,Triton,T0880,Loss of Safety,False,False,T0831,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P188,Triton,T0820,Exploitation for Evasion,True,False,T0831,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P189,Triton,T0869,Standard Application Layer Protocol,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P190,Triton,T1693.001,System Firmware,True,True,T0831,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P191,Fuxnet,T0883,Internet Accessible Device,True,True,T0859,False,False,2,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P192,Fuxnet,T0822,External Remote Services,True,True,T0866,False,False,2,True,False,fail,False,False,Application Log Content,instrumented,deepseek-v4-flash
+P193,Fuxnet,T0806,Brute Force I/O,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P194,Fuxnet,T0829,Loss of View,False,True,T0882,False,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P195,Fuxnet,T0814,Denial of Service,True,False,T0858,False,False,3,True,False,fail,False,False,Application Log Content,instrumented,deepseek-v4-flash
+P196,Fuxnet,T0809,Data Destruction,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P197,Ryuk,T0828,Loss of Productivity and Revenue,False,False,T0826,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P198,REvil,T0863,User Execution,True,False,T1189,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P199,REvil,T0881,Service Stop,True,False,T0889,False,False,2,True,False,fail,False,False,Application Log Content; Software,instrumented,deepseek-v4-flash
+P200,REvil,T0849,Masquerading,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P201,REvil,T0828,Loss of Productivity and Revenue,False,False,T1486,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P202,REvil,T0869,Standard Application Layer Protocol,True,False,T0869,True,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P203,REvil,T0886,Remote Services,True,True,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P204,REvil,T0853,Scripting,True,False,T1059,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P205,FrostyGoop,T0836,Modify Parameter,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P206,FrostyGoop,T0801,Monitor Process State,True,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P207,FrostyGoop,T0869,Standard Application Layer Protocol,True,False,T0882,False,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P208,FrostyGoop,T0885,Commonly Used Port,True,False,T0882,False,True,2,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P209,FrostyGoop,T0807,Command-Line Interface,True,True,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P210,INCONTROLLER,T0846.003,Multicast Discovery,True,False,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P211,INCONTROLLER,T0861,Point & Tag Identification,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P212,INCONTROLLER,T0869,Standard Application Layer Protocol,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P213,INCONTROLLER,T0886,Remote Services,True,True,T0857,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P214,INCONTROLLER,T0884,Connection Proxy,True,False,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P215,INCONTROLLER,T0836,Modify Parameter,True,True,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P216,INCONTROLLER,T0858,Change Operating Mode,True,True,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P217,INCONTROLLER,T0843.001,Download All,True,True,T0831,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P218,INCONTROLLER,T0859,Valid Accounts,True,False,T0858,False,False,3,True,False,fail,False,False,Application Log Content,instrumented,deepseek-v4-flash
+P219,INCONTROLLER,T0846,Remote System Discovery,True,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P220,INCONTROLLER,T0843,Program Download,True,True,T0843,True,True,2,True,False,fail,True,True,Application Log Content,instrumented,deepseek-v4-flash
+P221,INCONTROLLER,T0888,Remote System Information Discovery,True,False,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P222,INCONTROLLER,T0867,Lateral Tool Transfer,True,False,T0857,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P223,INCONTROLLER,T0846.001,Port Scan,True,True,T0882,False,True,2,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P224,INCONTROLLER,T0845,Program Upload,True,True,T0855,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P225,INCONTROLLER,T0890,Exploitation for Privilege Escalation,True,False,T1543,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P226,INCONTROLLER,T0842,Network Sniffing,True,False,T0869,False,True,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P227,INCONTROLLER,T0809,Data Destruction,True,False,T0857,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P228,INCONTROLLER,T1694.002,Hardcoded Credentials,True,True,T0854,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P229,KillDisk,T0829,Loss of View,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P230,KillDisk,T0872,Indicator Removal on Host,True,False,T0809,False,False,0,True,False,fail,False,False,Command Execution; File Deletion; File Modification; Process Creation,instrumented,deepseek-v4-flash
+P231,KillDisk,T0809,Data Destruction,True,False,T0853,False,False,0,True,False,fail,False,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,instrumented,deepseek-v4-flash
+P232,KillDisk,T0881,Service Stop,True,False,T0889,False,True,2,True,False,fail,True,True,Application Log Content; Software,instrumented,deepseek-v4-flash
+P233,Industroyer,T0846,Remote System Discovery,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P234,Industroyer,T0807,Command-Line Interface,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P235,Industroyer,T0884,Connection Proxy,True,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P236,Industroyer,T0814,Denial of Service,True,False,T0882,False,True,3,True,False,undefined,True,True,,instrumented,deepseek-v4-flash
+P237,Industroyer,T1691.002,Reporting Message,True,True,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P238,Industroyer,T0888,Remote System Information Discovery,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P239,Industroyer,T0881,Service Stop,True,True,T0889,False,False,0,True,False,fail,False,False,Application Log Content; Software,instrumented,deepseek-v4-flash
+P240,Industroyer,T1691.001,Command Message,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P241,Industroyer,T0831,Manipulation of Control,False,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P242,Industroyer,T1695.001,Serial COM,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P243,Industroyer,T0801,Monitor Process State,True,False,T0869,False,False,2,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P244,Industroyer,T0800,Activate Firmware Update Mode,True,False,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P245,Industroyer,T0840,Network Connection Enumeration,True,False,T0859,False,False,0,True,False,fail,False,False,Logon Session Creation; Logon Session Metadata; User Account Authentication,instrumented,deepseek-v4-flash
+P246,Industroyer,T0816,Device Restart/Shutdown,True,True,T0882,False,False,0,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P247,Industroyer,T0806,Brute Force I/O,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P248,Industroyer,T0813,Denial of Control,False,True,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P249,Industroyer,T0829,Loss of View,False,False,T0809,False,False,0,True,False,fail,False,False,Command Execution; File Deletion; File Modification; Process Creation,instrumented,deepseek-v4-flash
+P250,Industroyer,T0815,Denial of View,False,True,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P251,Industroyer,T0809,Data Destruction,True,True,T0809,True,False,0,True,False,fail,False,False,Command Execution; File Deletion; File Modification; Process Creation,instrumented,deepseek-v4-flash
+P252,Industroyer,T0827,Loss of Control,False,False,T0853,False,False,0,True,False,fail,False,False,Command Execution; Module Load; Process Creation; Process Metadata; Script Execution,instrumented,deepseek-v4-flash
+P253,Industroyer,T0846.001,Port Scan,True,False,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P254,Industroyer,T0802,Automated Collection,True,False,T0882,False,False,2,True,False,undefined,False,False,,instrumented,deepseek-v4-flash
+P255,Industroyer,T0832,Manipulation of View,False,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P256,Industroyer,T0837,Loss of Protection,False,False,T0803,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P257,Duqu,T0893,Data from Local System,True,True,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P258,ACAD/Medre.A,T0882,Theft of Operational Information,False,False,T0869,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P259,Flame,T0893,Data from Local System,True,False,T0869,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P260,ACAD/Medre.A,T0893,Data from Local System,True,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P261,INCONTROLLER,T1692.001,Command Message,True,False,T0855,False,False,3,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P262,Maroochy Water Breach,T1692.001,Command Message,True,False,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P263,Duqu,T0811,Data from Information Repositories,True,True,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P264,REvil,T0882,Theft of Operational Information,False,False,T0869,False,True,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P265,Triton Safety Instrumented System Attack,T1692.001,Command Message,True,True,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P266,Duqu,T0882,Theft of Operational Information,False,False,T0869,False,False,3,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P267,Flame,T0882,Theft of Operational Information,False,False,T0869,False,False,0,True,True,pass,False,False,,instrumented,deepseek-v4-flash
+P268,Industroyer2,T1692.001,Command Message,True,True,T0855,False,False,2,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
+P269,Industroyer,T1692.001,Command Message,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P270,2022 Ukraine Electric Power Attack,T1692.001,Command Message,True,False,T0855,False,True,3,True,False,unknown-technique,True,True,,instrumented,deepseek-v4-flash
+P271,2025 Poland Wiper Attacks,T0882,Theft of Operational Information,False,False,T0857,False,False,0,True,False,unknown-technique,False,False,,instrumented,deepseek-v4-flash
