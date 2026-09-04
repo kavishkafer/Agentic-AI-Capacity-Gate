@@ -232,3 +232,19 @@ externally rather than relying on prompting.
 operational detail (container launches, timing, mitigation steps) and
 `stale_id_confound_output.txt` for the raw `revoked_check.py` output this
 report's §3 table summarizes.*
+
+## 8. Profile sweep addendum (2026-09-03/04)
+
+The pre-registered profile sweep (`experiments/profile_sweep/`, all 3 models ×
+6 instrumentation tiers × 271 items, instrumented condition only) tested the
+objection that `p3_historian` rejects claims by construction rather than
+tracking real evidence availability. Raw sweep CSVs are in this folder
+(`experiment_sweep_{deepseek,gemma,qwen}_{p1_flow,p2_dpi,p3_historian,p4_host,p5_controller,p5b_controller_strict}.csv`).
+Full results, the pre-registered H1–H4 verdicts, and interpretation are in
+`experiments/profile_sweep/sweep_results.csv` and the session's final summary;
+headline: H1 (violation falls monotonically p1→p5) **fails strict
+monotonicity for all three models**, but the id-remapped residual violation
+**does drop below 10% at the strict floor (p5b) for deepseek and qwen** (not
+for gemma, still 35%); H3 (models don't calibrate to available telemetry)
+**holds for all three** — none track the ontology ceiling. See the sweep's own
+`HYPOTHESIS.md` for what each prediction claims and why.

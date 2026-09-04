@@ -1,0 +1,13 @@
+[
+  {
+    "condition": "instrumented",
+    "n": 271,
+    "parse_ok": 0.985239852398524,
+    "attribution_correct": 0.007380073800738007,
+    "model_says_provable": 0.3173431734317343,
+    "arm4_grounding_pass": 1.0,
+    "arm5_capacity_pass": 0.3062730627306273,
+    "capacity_violation": 0.23616236162361623,
+    "missed_by_grounding": 0.23616236162361623
+  }
+]

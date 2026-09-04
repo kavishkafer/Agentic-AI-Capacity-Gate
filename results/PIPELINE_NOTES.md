@@ -65,3 +65,137 @@ was estimated at ~4 hours.
 | deepseek-v4-flash | 100% / 100% | ~35 min | TP=2, `--default-chat-template-kwargs.thinking=false` at launch (pre-existing 7-day-old container) |
 | gemma-4-26b-moe | 100% / 100% | ~26 min | solo, no reasoning parser configured |
 | qwen3.8-27b | 5%→100% / 0%→95% (2 attempts) | ~4 hr (est.) | solo, required thinking-disable mitigation; see above |
+
+## Matched-config re-run (2026-09-02) — for publication rigor
+
+Following a request to hold serving variables as constant as possible across
+models for the paper, three things happened, in order.
+
+### 1. `max_tokens` harness fix
+
+The harness never set `max_tokens` explicitly in v1 — each model relied on its
+server's implicit default. Added an explicit `--max-tokens` flag to
+`src/experiment.py` (default 1024) and threaded it through `Client.chat()` in
+`src/llm.py`. This is the actual methodological gap this re-run closes.
+
+Effect on speed was **not uniform across models**: deepseek sped up
+(~35min→~21min; the cap cut off previously-unbounded long tails), gemma slowed
+down (~26min→~51min; cause unclear — possibly scheduling/batching behavior
+change from the explicit field, not truncation, since answers were
+unaffected), qwen's effect is confounded with the TP=2 change below. Answer
+distributions (parse_ok, capacity_violation, missed_by_grounding) were
+unchanged within noise for all three models — see `results_matched/REPORT.md`
+§2 for exact numbers.
+
+### 2. deepseek launch-command reconstruction failure (two crashes)
+
+Attempted to also match deepseek's `max-model-len` (v1: `auto`) and
+`kv-cache-dtype` (v1: `fp8`) to gemma/qwen's values. Both attempts crashed:
+
+- Removing `--kv-cache-dtype fp8` (falls back to `auto`):
+  `AssertionError: DeepseekV4 fp8_ds_mla layout only supports fp8 kv-cache, got auto`
+- Setting `--max-model-len 16384` (down from `auto` = 1,048,576):
+  `RuntimeError: Assertion error (.../layout.hpp:39): t.dim() == N` inside
+  `_deepseek_v4_fp8_o_proj_einsum` (custom DeepGEMM FP8 kernel), during the
+  profiling dummy-run.
+
+Root cause: the relaunch command had been reconstructed from `docker exec
+vllm_node ps aux` output on the original (pre-existing, 7-day-old) container,
+which shows process argv but **not** environment variables or applied
+source-code mods. The user supplied the actual original launch command, which
+included:
+
+```
+--apply-mod mods/instanttensor-hybrid-draft-loader \
+-e CUTE_DSL_ARCH=sm_121a -e VLLM_USE_AOT_COMPILE=1 -e VLLM_USE_BREAKABLE_CUDAGRAPH=0 \
+-e VLLM_USE_MEGA_AOT_ARTIFACT=-1 -e VLLM_MEMORY_PROFILE_INCLUDE_ATTN=1 \
+-e VLLM_USE_FLASHINFER_SAMPLER=1 -e VLLM_USE_B12X_WO_PROJECTION=1 -e VLLM_USE_B12X_MHC=1 \
+-e VLLM_USE_B12X_FP8_GEMM=1 -e VLLM_USE_B12X_MOE=1 -e VLLM_USE_B12X_SPARSE_INDEXER=1 \
+-e VLLM_USE_V2_MODEL_RUNNER=1 -e VLLM_MOE_SKIP_PADDING=0 \
+-e B12X_MLA_SM120_UNIFIED=1 -e B12X_MOE_FORCE_A8=1
+```
+
+Relaunching with this mod+env set, `kv-cache-dtype=fp8`, and `max-model-len=auto`
+(i.e. **identical to v1 in everything except the harness `max_tokens` cap**)
+started cleanly with zero errors. **Lesson for future relaunches of this
+model**: never reconstruct a `vllm-node-b12x` launch command from `ps aux`
+alone — always capture the full `-e`/`--apply-mod` flags used, or ask whoever
+set it up. `kv-cache-dtype=fp8` and `max-model-len=auto` are hard architectural
+requirements for DeepSeek-V4-Flash on this kernel stack, not tunable choices.
+
+### 3. qwen TP=2 experiment (explicit user request, separate from the above)
+
+User asked to run qwen across both DGX Sparks (TP=2) instead of v1's solo
+(TP=1), to test whether its slow single-stream decode (~4.3 tok/s in v1,
+clearly the bottleneck of the whole session) was memory-bandwidth-bound.
+Flagged to the user before proceeding that this breaks TP parity with gemma
+(which stayed TP=1) — proceeded anyway per explicit instruction.
+
+Launch (stock `vllm-node-tf5` image, no mods/env-vars needed, unlike deepseek):
+
+```
+./launch-cluster.sh -t vllm-node-tf5 --name vllm_qwen -d \
+  exec vllm serve /home/dgx-spark-01/ai_data/models/Qwen3.8-27B-BF16 \
+  --host 0.0.0.0 --port 8000 --served-model-name qwen3.8-27b \
+  --tensor-parallel-size 2 --trust-remote-code \
+  --max-model-len 16384 --gpu-memory-utilization 0.85 \
+  --default-chat-template-kwargs '{"enable_thinking":false}'
+```
+
+Started cleanly on the first attempt across both nodes. Smoke test measured
+**12.7 s/call (bare) / 14.2 s/call (instrumented)**, vs. v1's solo baseline of
+~22–34 s/call — roughly **1.7–2x faster**. Full run: ~2h39m vs. v1's ~4h26m,
+with answer distributions unchanged within noise. Confirms the v1 bottleneck
+was genuinely memory-bandwidth-bound (qwen is dense/non-MoE, so TP=2 halves the
+weight-read burden per GPU) rather than an artifact of the harness or a
+fixable software issue.
+
+### Timing summary (matched runs)
+
+| model | matched full-run wall time | v1 wall time | config differences from v1 |
+|---|---|---|---|
+| deepseek-v4-flash | ~21 min | ~35 min | none besides harness `max_tokens=1024` |
+| gemma-4-26b-moe | ~51 min | ~26 min | none besides harness `max_tokens=1024` (slower, cause unclear) |
+| qwen3.8-27b | ~2h39m | ~4h26m | harness `max_tokens=1024` **and** TP=2 (was solo/TP=1) |
+
+Full numbers and analysis in `results_matched/REPORT.md`.
+
+## Profile sweep (2026-09-03/04) — pre-registered H1–H4, 18 tier-runs
+
+Ran the pre-registered `experiments/profile_sweep/` (see its `HYPOTHESIS.md`)
+overnight: 271 items × 6 instrumentation tiers (`p1_flow`, `p2_dpi`,
+`p3_historian`, `p4_host`, `p5_controller`, `p5b_controller_strict`) × 3
+models, instrumented condition only (bare re-scored at zero cost per the
+RUNBOOK). 4,878 calls total.
+
+Sequence: qwen (TP=2, reused the already-warm matched-config server —
+461.1 min for its 6 tiers), then deepseek (relaunched with the same
+`--apply-mod mods/instanttensor-hybrid-draft-loader` + env-var command
+documented above — 64.9 min, notably faster than qwen), then gemma (solo
+TP=1, the proven no-mods config — 145.5 min). Total sweep wall time ≈ 11.6
+hours. No crashes, no smoke-test failures — every model's config from the
+matched re-run carried over cleanly.
+
+`analyse_sweep.py`'s verdicts (full table in
+`experiments/profile_sweep/sweep_results.csv`):
+
+- **H1** (violation falls monotonically p1→p5, id-remapped): fails strict
+  monotonicity for all three models — none show a clean stepwise decline,
+  each has at least one tier where violation rises before falling again.
+  The weaker registered check ("approaches zero at the p5b strict floor",
+  threshold <10%) passes for deepseek (8%) and qwen (~10%, right at the
+  threshold) but not gemma (35%).
+- **H3** (models don't calibrate `says_provable` to the ceiling): holds for
+  all three — every model's assertion rate deviates from the ontology
+  ceiling by more than the 15-point threshold at some tier (deepseek −50pp,
+  gemma +58pp, qwen −40pp at the extremes).
+- H2/H4 have no explicit printed verdict from the script (it only computes
+  H1/H3 formally) — see the full per-tier table for `arm5_capacity_pass`
+  (H2: roughly tracks the ceiling's direction, not its magnitude) and the
+  calibration-gap column (H4: deepseek stays best-calibrated and gemma
+  worst at nearly every tier, i.e. the spread mostly persists, with some
+  narrowing between qwen and deepseek specifically at the p5b floor).
+
+Raw sweep CSVs copied into `results/` per RUNBOOK.md's instruction. See
+`results/REPORT.md` §8 for the short version and the session's final chat
+summary for the full writeup.
