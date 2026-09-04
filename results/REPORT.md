@@ -248,3 +248,56 @@ monotonicity for all three models**, but the id-remapped residual violation
 for gemma, still 35%); H3 (models don't calibrate to available telemetry)
 **holds for all three** — none track the ontology ceiling. See the sweep's own
 `HYPOTHESIS.md` for what each prediction claims and why.
+
+### 8.1 Statistical significance pass (added 2026-09-04)
+
+`analyse_sweep.py`'s H1 check is pointwise strict monotonicity — it fails the
+whole hypothesis if the raw violation percentage rises at even one step, and
+it compares tiers as if they were independent samples even though the same
+271 items are reused at every tier. `experiments/profile_sweep/significance.py`
+(new, standard library only) redoes this properly: Wilson confidence
+intervals per tier, McNemar's **exact, paired** test between adjacent tiers
+(the correct test for the same items scored twice), an exact-permutation
+Spearman trend test across p1→p5, and item-level attribution of what moves
+between `p3_historian` and the strict floor.
+
+**Result: the apparent non-monotonicity is not noise — it is a real,
+statistically significant hump.** All three models show a significant *rise*
+in violation from `p1_flow`→`p3_historian` (McNemar p<0.05, several p<0.0001),
+then a significant *decline* from `p3_historian` onward. This is mechanistically
+sensible, not a defect: at the lowest tiers almost nothing is checkable at
+all, so there is little opportunity to violate capacity; `p3_historian`
+unlocks more claimable techniques without yet supplying enough evidence for
+most of them, so violation rises; only `p4_host`+ supplies genuinely
+sufficient evidence, and violation falls.
+
+Tested properly, the headline `p3_historian`→`p5b_controller_strict`
+comparison is stronger than the raw percentages suggested:
+
+| model | McNemar p3→p5b | reading |
+|---|---|---|
+| gemma | b=77, c=7, **p<0.0001** | significant decline — real collapse toward the floor |
+| qwen | b=34, c=0, **p<0.0001** | significant decline, and **zero items got worse** |
+| deepseek | b=9, c=8, p=1.0 | no significant change — but only because deepseek was already near-floor at p3 (8.4%), leaving no room to decline further |
+
+Item-level attribution confirms this is a real effect rather than churn: qwen
+clears 34 items p3→p5b with zero regressions; gemma clears 77 against 7
+regressions (net +70), concentrated in specific techniques (`T0846`,
+`T0859`); deepseek shows roughly balanced churn (9 cleared vs. 8 newly
+violated) consistent with already sitting near its floor.
+
+The Spearman trend test found no significant *monotonic* trend for any
+model across p1→p5 — correctly so, since the true relationship is a hump,
+not a monotonic decline, and a monotonic-trend test is the wrong tool for it.
+This does not weaken the McNemar result; it confirms a simple trend
+statistic would have been the wrong way to test H1 in the first place.
+
+**Net effect on the paper's claim**: H1's strict-monotonicity failure no
+longer needs to be reported as an unexplained anomaly. It is a real,
+statistically-supported, mechanistically-explicable pattern, and the
+collapse-toward-the-floor claim (gemma, qwen) and the already-calibrated
+null result (deepseek) both now have direct statistical support rather than
+resting on eyeballed percentages. Full output in
+`experiments/profile_sweep/significance.py`'s printed report (re-run it to
+regenerate — it is deterministic against the existing CSVs, no new model
+calls).

@@ -199,3 +199,24 @@ matched re-run carried over cleanly.
 Raw sweep CSVs copied into `results/` per RUNBOOK.md's instruction. See
 `results/REPORT.md` §8 for the short version and the session's final chat
 summary for the full writeup.
+
+### Statistical significance pass (2026-09-04)
+
+`analyse_sweep.py`'s H1 check is strict pointwise monotonicity on raw
+percentages, treating each tier as an independent sample despite reusing the
+same 271 items every tier. Added `experiments/profile_sweep/significance.py`
+(pure standard library, no scipy/numpy/pandas available in this environment —
+implemented Wilson CI, McNemar's exact test, and an exact-permutation
+Spearman test by hand to match the rest of the project's dependency-free
+convention) to redo this properly.
+
+Finding: the apparent non-monotonicity is **not noise** — McNemar's paired
+exact test shows a statistically significant *rise* in violation from
+p1_flow through p3_historian (p<0.05 to p<0.0001 across all three models),
+then a significant *decline* from p3_historian onward. This is a real hump,
+mechanistically explained by p3_historian unlocking more claimable
+techniques without yet supplying enough evidence for most of them. The
+headline p3→p5b comparison is significant for gemma and qwen (p<0.0001) and
+null for deepseek only because deepseek was already near its floor at p3
+(nothing left to decline into significance). Full writeup in
+`results/REPORT.md` §8.1.

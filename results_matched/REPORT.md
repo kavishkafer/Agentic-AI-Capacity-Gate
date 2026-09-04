@@ -235,3 +235,12 @@ not what it finds.
 See `PIPELINE_NOTES.md` (project `out/`, dated section) for the full
 operational log of this re-run, and `stale_id_confound_output.txt` for the raw
 `revoked_check.py` output §4 summarizes.*
+
+## Note (2026-09-03/04)
+
+A separate pre-registered profile sweep (271 items × 6 instrumentation tiers ×
+3 models, using the same non-thinking qwen and matched `max_tokens=1024`
+config established in this report) tested whether the single-tier
+`p3_historian` result generalizes or is an artifact of that profile's
+restrictiveness. See `results/REPORT.md` §8 and
+`experiments/profile_sweep/sweep_results.csv` for the full H1–H4 verdicts.
